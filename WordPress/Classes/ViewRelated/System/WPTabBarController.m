@@ -23,6 +23,7 @@ static NSString * const WPNotificationsSplitViewRestorationID = @"WPNotification
 static NSString * const WPMeSplitViewRestorationID = @"WPMeSplitViewRestorationID";
 
 static NSString * const WPReaderNavigationRestorationID = @"WPReaderNavigationID";
+static NSString * const WPMicroblogNavigationRestorationID = @"WPMicroBlogNavigationID";
 static NSString * const WPMeNavigationRestorationID = @"WPMeNavigationID";
 static NSString * const WPNotificationsNavigationRestorationID  = @"WPNotificationsNavigationID";
 static NSString * const WPTabBarButtonClassname = @"UITabBarButton";
@@ -56,6 +57,8 @@ static NSInteger const WPTabBarIconOffsetiPhone = 5;
 
 @property (nonatomic, strong) MeViewController *meViewController;
 @property (nonatomic, strong) UINavigationController *meNavigationController;
+
+@property (nonatomic, strong) MicroBlogNavigationController *microblogNavigationController;
 
 @property (nonatomic, strong) WPSplitViewController *notificationsSplitViewController;
 @property (nonatomic, strong) WPSplitViewController *meSplitViewController;
@@ -165,6 +168,23 @@ static NSInteger const WPTabBarIconOffsetiPhone = 5;
 }
 
 #pragma mark - Tab Bar Items
+
+-(MicroBlogNavigationController *)microblogNavigationController{
+    if (!_microblogNavigationController) {
+        _microblogNavigationController = [[MicroBlogNavigationController alloc] initWithRootViewController:[MicroBlogViewController new]];
+    
+        _microblogNavigationController.navigationBar.translucent = NO;
+        _microblogNavigationController.view.backgroundColor = [UIColor murielBasicBackground];
+
+        _microblogNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-tab-reader"];
+        _microblogNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon-tab-reader"];
+        
+        _microblogNavigationController.restorationIdentifier = WPMicroblogNavigationRestorationID;
+        _microblogNavigationController.tabBarItem.accessibilityIdentifier = @"MicroBlogTabButton";
+        _microblogNavigationController.tabBarItem.title = @"微博";
+    }
+    return _microblogNavigationController;
+}
 
 - (UINavigationController *)readerNavigationController
 {
@@ -358,6 +378,7 @@ static NSInteger const WPTabBarIconOffsetiPhone = 5;
 
     if (self.shouldUseStaticScreens || !isIPad) {
         return @[
+            self.microblogNavigationController,
             self.mySitesCoordinator.rootViewController,
             self.readerNavigationController,
             self.notificationsNavigationController,
