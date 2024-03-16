@@ -1,3 +1,5 @@
-We hebben wat aanpassingen gedaan aan het pre-publicatiesheet. Je kan wat veranderingen terugzien zoals soepelere schermtransities, een vereenvoudigde datumkiezer en een nettere instellingenweergave wanneer je vanaf je iPad publiceert.
+We hebben enkele wijzigingen aangebracht aan de blokeditor.
 
-We hebben ook het infogedeelte dat over je Gravatar gaat van je gebruikersprofiel bijgewerkt. (Weet je niet zo goed wat dat is? Nou, wees voorbereid op heel wat Grava-goeds.)
+- The app won’t crash anymore when the editor auto-scrolls down to a block.
+- You’ll now see an error message when a video fails to upload to media and text blocks.
+- Images no longer appear partly transparent while they’re being uploaded. All color, all the time.

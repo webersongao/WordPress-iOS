@@ -1,3 +1,5 @@
-Nous avons procédé à plusieurs ajustements sur la feuille de pré-publication. Vous remarquerez des changements parmi lesquels des transitions plus fluides d'un écran à l'autre, un sélecteur de dates simplifié et des réglages plus clairs lorsque vous publiez sur votre iPad.
+Nous avons apporté quelques changements à l’éditeur de blocs.
 
-Nous avons également mis à jour la section informations de votre profil utilisateur à propos de votre Gravatar. (Vous ne savez pas de quoi on parle ? On va vous Gravâter.)
+- L’application ne plantera plus lorsque l’éditeur fait automatiquement défiler un bloc.
+- Désormais, vous verrez un message d’erreur lorsque le chargement d’une vidéo dans un bloc Média ou Paragraphe échoue.
+- Les images ne seront plus partiellement transparentes lors de leur mise en ligne. De la couleur, partout, tout le temps.

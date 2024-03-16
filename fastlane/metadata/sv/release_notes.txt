@@ -1,3 +1,5 @@
-Vi har gjort flertalet justeringar av förpubliceringsarket. Du kommer att märka förändringar såsom mjukare skärmövergångar, en förenklad datumväljare och renare inställningar när du publicerar på din iPad.
+Vi har gjort några ändringar i blockredigeraren.
 
-Vi har också uppdaterat informationssektionen för din användarprofil som berör din Gravatar. (Är du osäker på vad det är för något? Vänta bara.)
+- Appen kommer inte längre att krascha när redigeraren automatiskt bläddrar ner till ett block.
+- Du kommer nu att se ett felmeddelande när en videouppladdning till ett media- och textblock misslyckas.
+- Bilder kommer inte längre att visas som delvis transparenta medan de laddas upp. Helt i färg, hela tiden.

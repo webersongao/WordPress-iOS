@@ -1,3 +1,8 @@
-Abbiamo apportato diverse modifiche alla scheda di pre-pubblicazione. Vedrai cambiamenti come transizioni più fluide tra le schermate, un selezionatore di date semplificato e impostazioni più pulite durante la pubblicazione su iPad.
+La schermata Statistiche ha una nuova scheda Traffico. Ottieni una grafica migliore e l'accesso a tutti i tuoi dati storici in un unico posto. Proprio così, disponi di dati per giorni... mesi, settimane e anni.
 
-Abbiamo inoltre aggiornato la sezione info del profilo utente relativa al tuo Gravatar (Non sai cosa sia? Ti aspetta una Grava-coccola).
+C'è stato un miglioramento delle notifiche, che hanno un design più fresco e intuitivo. Abbiamo anche apportato alcune modifiche all'editor a blocchi.
+
+- Abbiamo aggiunto il supporto per VideoPress v5, quindi noterai prestazioni migliori nei tuoi blocchi video.
+- L'app non si blocca più quando l'editor scorre automaticamente verso il basso fino a un blocco. Niente più rinunce o delusioni.
+- Ora vedrai un messaggio di errore quando non è possibile caricare un video su media e blocchi di testo.
+- Le immagini non appaiono più parzialmente trasparenti mentre vengono caricate. Tutto a colori, sempre.

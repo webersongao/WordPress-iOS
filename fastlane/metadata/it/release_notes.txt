@@ -1,3 +1,5 @@
-Abbiamo apportato diverse modifiche alla scheda di pre-pubblicazione. Vedrai cambiamenti come transizioni più fluide tra le schermate, un selezionatore di date semplificato e impostazioni più pulite durante la pubblicazione su iPad.
+Abbiamo apportato alcune modifiche all'editor a blocchi.
 
-Abbiamo inoltre aggiornato la sezione info del profilo utente relativa al tuo Gravatar (Non sai cosa sia? Ti aspetta una Grava-coccola).
+- L'app non si blocca più quando l'editor scorre automaticamente verso il basso fino a un blocco.
+- Ora vedrai un messaggio di errore quando non è possibile caricare un video su media e blocchi di testo.
+- Le immagini non appaiono più parzialmente trasparenti mentre vengono caricate. Tutto a colori, sempre.
