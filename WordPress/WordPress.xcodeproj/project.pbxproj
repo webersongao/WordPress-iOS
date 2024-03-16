@@ -928,6 +928,8 @@
 		37022D931981C19000F322B7 /* VerticallyStackedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37022D901981BF9200F322B7 /* VerticallyStackedButton.m */; };
 		374CB16215B93C0800DD0EBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374CB16115B93C0800DD0EBC /* AudioToolbox.framework */; };
 		37EAAF4D1A11799A006D6306 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAAF4C1A11799A006D6306 /* CircularImageView.swift */; };
+		3E6AB4142B996E2F009EF0C0 /* MicroBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAB6DD2B986FF1003B91CC /* MicroBlogViewController.swift */; };
+		3E6AB4152B996E32009EF0C0 /* MicroBlogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAB6DB2B986FDC003B91CC /* MicroBlogNavigationController.swift */; };
 		3EDAB6DC2B986FDC003B91CC /* MicroBlogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAB6DB2B986FDC003B91CC /* MicroBlogNavigationController.swift */; };
 		3EDAB6DE2B986FF1003B91CC /* MicroBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDAB6DD2B986FF1003B91CC /* MicroBlogViewController.swift */; };
 		3F03F2BD2B45041E00A9CE99 /* XCUIElement+TapUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03F2BC2B45041E00A9CE99 /* XCUIElement+TapUntil.swift */; };
@@ -24322,6 +24324,7 @@
 				FABB21572602FC2C00C8785C /* ReaderSaveForLaterAction.swift in Sources */,
 				982D99FF26F922C100AA794C /* InlineEditableMultiLineCell.swift in Sources */,
 				FABB21582602FC2C00C8785C /* WPHorizontalRuleAttachment.swift in Sources */,
+				3E6AB4152B996E32009EF0C0 /* MicroBlogNavigationController.swift in Sources */,
 				FABB21592602FC2C00C8785C /* ImmuTable+Optional.swift in Sources */,
 				FABB215A2602FC2C00C8785C /* WordPressComRestApi+Defaults.swift in Sources */,
 				FABB215B2602FC2C00C8785C /* WhatIsNewViewController.swift in Sources */,
@@ -25525,6 +25528,7 @@
 				0C23F3372AC4AD3400EE6117 /* SiteMediaSelectionTitleView.swift in Sources */,
 				FABB24B02602FC2C00C8785C /* SchedulingDate+Helpers.swift in Sources */,
 				08E39B4628A3DEB200874CB8 /* UserPersistentStoreFactory.swift in Sources */,
+				3E6AB4142B996E2F009EF0C0 /* MicroBlogViewController.swift in Sources */,
 				FABB24B12602FC2C00C8785C /* QuickStartChecklistCell.swift in Sources */,
 				FABB24B22602FC2C00C8785C /* PostAutoUploadInteractor.swift in Sources */,
 				FABB24B32602FC2C00C8785C /* SiteStatsDetailsViewModel.swift in Sources */,
