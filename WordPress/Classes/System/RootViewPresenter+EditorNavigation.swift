@@ -22,7 +22,15 @@ extension RootViewPresenter {
             showPostTab(animated: true, completion: afterDismiss)
         }
     }
-
+    func showMicroPostTab(completion afterDismiss: (() -> Void)?) {
+        let context = ContextManager.shared.mainContext
+        // Ignore taps on the post tab and instead show the modal.
+        if Blog.count(in: context) == 0 {
+            mySitesCoordinator.showAddNewSite()
+        } else {
+            showMicroPostTab(animated: true, completion: afterDismiss)
+        }
+    }
     func showPostTab(for blog: Blog) {
         let context = ContextManager.shared.mainContext
         if Blog.count(in: context) == 0 {
@@ -50,6 +58,24 @@ extension RootViewPresenter {
 
         let properties = [WPAppAnalyticsKeyTapSource: "create_button", WPAppAnalyticsKeyPostType: "post"]
         WPAppAnalytics.track(.editorCreatedPost, withProperties: properties, with: blog)
+        rootViewController.present(editor, animated: false)
+    }
+    func showMicroPostTab(animated: Bool,
+                     blog: Blog? = nil,
+                     completion afterDismiss: (() -> Void)? = nil) {
+        if rootViewController.presentedViewController != nil {
+            rootViewController.dismiss(animated: false)
+        }
+
+        guard let blog = blog ?? currentOrLastBlog() else {
+            return
+        }
+        let editor = EditPostViewController(blog: blog, micro: true)
+        editor.modalPresentationStyle = .fullScreen
+        editor.showImmediately = !animated
+        editor.afterDismiss = afterDismiss
+//        let properties = [WPAppAnalyticsKeyTapSource: "create_button", WPAppAnalyticsKeyPostType: "post"]
+//        WPAppAnalytics.track(.editorCreatedPost, withProperties: properties, with: blog)
         rootViewController.present(editor, animated: false)
     }
 

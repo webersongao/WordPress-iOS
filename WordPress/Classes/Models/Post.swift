@@ -29,6 +29,7 @@ fileprivate func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
 @objc(Post)
 class Post: AbstractPost {
     @objc static let typeDefaultIdentifier = "post"
+    @objc static let typeMicroDefaultIdentifier = "micropost"
 
     struct Constants {
         static let publicizeIdKey = "id"

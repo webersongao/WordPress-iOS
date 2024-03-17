@@ -19,6 +19,25 @@ struct PostAction: ActionSheetItem {
     }
 }
 
+struct MicroPostAction: ActionSheetItem {
+    let handler: () -> Void
+    let source: String
+
+    private let action = "create_new_post"
+
+    func makeButton() -> ActionSheetButton {
+        let highlight: Bool = QuickStartTourGuide.shared.shouldSpotlight(.newpost)
+        return ActionSheetButton(title: "微博",
+                                 image: .gridicon(.posts),
+                                 identifier: "blogPostButton",
+                                 highlight: highlight,
+                                 action: {
+//                                    WPAnalytics.track(.createSheetActionTapped, properties: ["source": source, "action": action])
+                                    handler()
+                                 })
+    }
+}
+
 struct PageAction: ActionSheetItem {
     let handler: () -> Void
     let source: String

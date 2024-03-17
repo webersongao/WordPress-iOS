@@ -58,7 +58,7 @@ const NSUInteger PostServiceDefaultNumberToSync = 40;
                                   if ([remotePost.type isEqualToString:PostServiceTypePage]) {
                                       post = [blog createPage];
                                   } else {
-                                      post = [blog createPost];
+                                      post = [blog createPostWithMicro:NO];
                                   }
                               }
                               

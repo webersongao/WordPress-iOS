@@ -17,13 +17,17 @@ extension MySiteViewController {
                 self?.startAlertTimer()
             })
         }
-
+        let newMicroPost = { [weak self] in
+            let presenter = RootViewCoordinator.sharedPresenter
+            presenter.showMicroPostTab(completion: {
+                self?.startAlertTimer()
+            })
+        }
         let newStory = {
             let presenter = RootViewCoordinator.sharedPresenter
             let blog = presenter.currentOrLastBlog()
             presenter.showStoryEditor(forBlog: blog)
         }
-
         let source = "my_site"
 
         var actions: [ActionSheetItem] = []
@@ -33,6 +37,7 @@ extension MySiteViewController {
         }
 
         actions.append(PostAction(handler: newPost, source: source))
+        actions.append(MicroPostAction(handler: newMicroPost, source: source))
         if blog?.supports(.pages) ?? false {
             actions.append(PageAction(handler: newPage, source: source))
         }

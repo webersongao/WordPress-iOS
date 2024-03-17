@@ -37,7 +37,7 @@ extension Blog {
 
     /// Create a post in the blog.
     @objc
-    func createPost() -> Post {
+    func createPost(micro: Bool = false) -> Post {
         guard let context = managedObjectContext else {
             fatalError("The `Blog` instance is not associated with an `NSManagedObjectContext`")
         }
@@ -53,7 +53,7 @@ extension Blog {
         }
 
         post.postFormat = settings?.defaultPostFormat
-        post.postType = Post.typeDefaultIdentifier
+        post.postType = micro ? Post.typeMicroDefaultIdentifier : Post.typeDefaultIdentifier
 
         if let userID = userID, let author = getAuthorWith(id: userID) {
             post.authorID = author.userID
@@ -68,7 +68,13 @@ extension Blog {
 
     /// Create a draft post in the blog.
     func createDraftPost() -> Post {
-        let post = createPost()
+        let post = createPost(micro: false)
+        markAsDraft(post)
+        return post
+    }
+
+    func createDraftMicroPost() -> Post {
+        let post = createPost(micro: true)
         markAsDraft(post)
         return post
     }

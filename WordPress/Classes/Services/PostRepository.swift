@@ -48,7 +48,7 @@ final class PostRepository {
                 if remotePost.type == PostServiceType.page.rawValue {
                     post = blog.createPage()
                 } else {
-                    post = blog.createPost()
+                    post = blog.createPost(micro: false)
                 }
             }
 

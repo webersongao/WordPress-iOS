@@ -153,6 +153,7 @@
     }
     if ([post isKindOfClass:[Post class]]) {
         Post *postPost = (Post *)post;
+        remotePost.type = postPost.postType;
         remotePost.format = postPost.postFormat;
         remotePost.tags = [[postPost.tags componentsSeparatedByString:@","] wp_map:^id(NSString *obj) {
             return [obj stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
@@ -237,7 +238,7 @@
                 post = [blog createPage];
             } else {
                 // Create a Post entity for any other posts that have a remote post type of "post" or a custom post type.
-                post = [blog createPost];
+                post = [blog createPostWithMicro:false];
             }
         }
         [PostHelper updatePost:post withRemotePost:remotePost inContext:context];

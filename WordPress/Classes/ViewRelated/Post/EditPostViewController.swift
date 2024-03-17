@@ -21,6 +21,7 @@ class EditPostViewController: UIViewController {
     @objc fileprivate(set) var post: Post?
     private let prompt: BloggingPrompt?
     fileprivate var hasShownEditor = false
+    fileprivate var isMicroTypePost = false
     fileprivate var editingExistingPost = false
     fileprivate let blog: Blog
 
@@ -52,7 +53,9 @@ class EditPostViewController: UIViewController {
     @objc convenience init(blog: Blog) {
         self.init(post: nil, blog: blog)
     }
-
+    @objc convenience init(blog: Blog, micro: Bool = false) {
+        self.init(post: nil, blog: blog, micro: micro)
+    }
     /// Initialize as an editor to create a new post for the provided blog and prompt
     ///
     /// - Parameter blog: blog to create a new post for
@@ -67,8 +70,9 @@ class EditPostViewController: UIViewController {
     ///   - post: the post to edit
     ///   - blog: the blog to create a post for, if post is nil
     /// - Note: it's preferable to use one of the convenience initializers
-    fileprivate init(post: Post?, blog: Blog, loadAutosaveRevision: Bool = false, prompt: BloggingPrompt? = nil) {
+    fileprivate init(post: Post?, blog: Blog, loadAutosaveRevision: Bool = false, prompt: BloggingPrompt? = nil, micro: Bool = false) {
         self.post = post
+        self.isMicroTypePost = micro
         self.loadAutosaveRevision = loadAutosaveRevision
         if let post = post {
             if !post.originalIsDraft() {
@@ -114,7 +118,7 @@ class EditPostViewController: UIViewController {
         if let post = post {
             return post
         } else {
-            let newPost = blog.createDraftPost()
+            let newPost = self.isMicroTypePost ? blog.createDraftMicroPost() : blog.createDraftPost()
             newPost.prepareForPrompt(prompt)
             post = newPost
             return newPost
