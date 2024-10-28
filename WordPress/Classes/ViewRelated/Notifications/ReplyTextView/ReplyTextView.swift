@@ -286,7 +286,7 @@ import Gridicons
                                                                       comment: "Accessibility Label for the enter full screen button on the comment reply text view")
 
         // Reply button
-        replyButton.setTitleColor(UIAppColor.tint, for: .normal)
+        replyButton.setTitleColor(UIAppColor.brand, for: .normal)
         replyButton.titleLabel?.text = NSLocalizedString("Reply", comment: "Reply to a comment.")
         replyButton.accessibilityIdentifier = "reply-button"
         replyButton.accessibilityLabel = NSLocalizedString("Reply", comment: "Accessibility label for the reply button")
