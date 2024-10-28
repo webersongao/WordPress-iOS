@@ -3,10 +3,6 @@ import ColorStudio
 import SwiftUI
 
 struct UIAppColor {
-    static func primary(_ shade: ColorStudioShade) -> UIColor {
-        CSColor.Blue.shade(shade)
-    }
-
     static func accent(_ shade: ColorStudioShade) -> UIColor {
         CSColor.Pink.shade(shade)
     }
@@ -96,6 +92,10 @@ struct UIAppColor {
     static func brand(_ shade: ColorStudioShade) -> UIColor {
         CSColor.JetpackGreen.shade(shade)
     }
+
+    static func primary(_ shade: ColorStudioShade) -> UIColor {
+        CSColor.JetpackGreen.shade(shade)
+    }
 #endif
 
 #if IS_WORDPRESS
@@ -104,6 +104,10 @@ struct UIAppColor {
 
     static func brand(_ shade: ColorStudioShade) -> UIColor {
         CSColor.WordPressBlue.shade(shade)
+    }
+
+    static func primary(_ shade: ColorStudioShade) -> UIColor {
+        CSColor.Blue.shade(shade)
     }
 #endif
 
