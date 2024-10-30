@@ -107,6 +107,7 @@ import AutomatticTracks
     private var indexPathForGapMarker: IndexPath?
     private var didSetupView = false
     private var didBumpStats = false
+    @Lazy private var titleView = ReaderNavigationCustomTitleView()
     internal let scrollViewTranslationPublisher = PassthroughSubject<Bool, Never>()
 
     /// Content management
@@ -260,7 +261,7 @@ import AutomatticTracks
 
     lazy var isSidebarModeEnabled = splitViewController?.isCollapsed == false
 
-    var isReaderResetDiscoverEnabled = false
+    var isEmbeddedInDiscover = false
 
     // MARK: - Factory Methods
 
@@ -542,7 +543,7 @@ import AutomatticTracks
     // MARK: - Configuration / Topic Presentation
 
     @objc private func configureStreamHeader() {
-        guard !isReaderResetDiscoverEnabled else {
+        guard !isEmbeddedInDiscover else {
             return
         }
         guard let headerView = headerForStream(readerTopic, isLoggedIn: isLoggedIn, container: tableViewController) else {
@@ -629,7 +630,11 @@ import AutomatticTracks
 
     private func configureTitleForTopic() {
         guard let topic = readerTopic else {
-            title = NSLocalizedString("Reader", comment: "The default title of the Reader")
+            if contentType == .saved {
+                title = SharedStrings.Reader.saved
+            } else {
+                title = NSLocalizedString("Reader", comment: "The default title of the Reader")
+            }
             return
         }
 
@@ -637,6 +642,27 @@ import AutomatticTracks
             title = ""
         } else {
             title = topic.title
+        }
+
+        if FeatureFlag.readerReset.enabled {
+            configureNavigationTitle(for: topic)
+        }
+    }
+
+    private func configureNavigationTitle(for topic: ReaderAbstractTopic) {
+        func setCustomTitleView(_ title: String) {
+            self.title = title
+            titleView.textLabel.text = title
+            navigationItem.titleView = titleView
+        }
+        if isEmbeddedInDiscover {
+            setCustomTitleView(SharedStrings.Reader.discover)
+        } else if ReaderHelpers.topicIsFollowing(topic) {
+            setCustomTitleView(SharedStrings.Reader.recent)
+        } else if ReaderHelpers.topicIsLiked(topic) {
+            title = SharedStrings.Reader.likes
+        } else {
+            setCustomTitleView(topic.title)
         }
     }
 
@@ -707,6 +733,10 @@ import AutomatticTracks
 
     /// Scrolls to the top of the list of posts.
     @objc func scrollViewToTop() {
+        guard !FeatureFlag.readerReset.enabled else {
+            return
+        }
+
         navigationMenuDelegate?.didScrollToTop()
         guard tableView.numberOfRows(inSection: .zero) > 0 else {
             tableView.setContentOffset(.zero, animated: true)
@@ -1723,7 +1753,7 @@ extension ReaderStreamViewController {
         if content.contentCount > 0 {
             return
         }
-        if !isReaderResetDiscoverEnabled {
+        if !isEmbeddedInDiscover {
             tableView.tableHeaderView?.isHidden = true
         }
         configureResultsStatus(title: ResultsStatusText.fetchingPostsTitle, accessoryView: NoResultsViewController.loadingAccessoryView())
@@ -1745,7 +1775,7 @@ extension ReaderStreamViewController {
             return
         }
 
-        if !isReaderResetDiscoverEnabled {
+        if !isEmbeddedInDiscover {
             tableView.tableHeaderView?.isHidden = true
         }
 
@@ -2074,6 +2104,8 @@ extension ReaderStreamViewController: UITableViewDelegate, JPScrollViewDelegate 
 
         let velocity = tableView.panGestureRecognizer.velocity(in: tableView)
         navigationMenuDelegate?.scrollViewDidScroll(scrollView, velocity: velocity)
+
+        $titleView.value?.updateAlpha(in: scrollView)
     }
 }
 

@@ -132,6 +132,9 @@ private final class ReaderPostCellView: UIView {
     private func setupStyle() {
         avatarView.layer.cornerRadius = ReaderPostCell.avatarSize / 2
         avatarView.layer.masksToBounds = true
+        avatarView.successBackgroundColor = UIColor.white
+        avatarView.layer.borderWidth = 0.5
+        avatarView.layer.borderColor = UIColor.opaqueSeparator.withAlphaComponent(0.5).cgColor
         avatarView.isErrorViewEnabled = false
 
         buttonAuthor.maximumContentSizeCategory = .accessibilityLarge
@@ -299,6 +302,11 @@ private final class ReaderPostCellView: UIView {
             imageView.setImage(with: imageURL)
         }
 
+        configureToolbar(with: viewModel.toolbar)
+        configureToolbarAccessibility(with: viewModel.toolbar)
+    }
+
+    private func configureToolbar(with viewModel: ReaderPostToolbarViewModel) {
         buttons.bookmark.configuration = {
             var configuration = buttons.bookmark.configuration ?? .plain()
             configuration.image = UIImage(systemName: viewModel.isBookmarked ? "bookmark.fill" : "bookmark")
@@ -320,8 +328,6 @@ private final class ReaderPostCellView: UIView {
                 return configuration
             }()
         }
-
-        configureAccessibility(with: viewModel)
     }
 
     private func setAvatar(with viewModel: ReaderPostCellViewModel) {
@@ -401,7 +407,7 @@ private extension ReaderPostCellView {
         buttons.like.accessibilityIdentifier = "reader-like-button"
     }
 
-    func configureAccessibility(with viewModel: ReaderPostCellViewModel) {
+    func configureToolbarAccessibility(with viewModel: ReaderPostToolbarViewModel) {
         buttons.bookmark.accessibilityLabel = viewModel.isBookmarked ? NSLocalizedString("reader.post.buttonRemoveBookmark.accessibilityLint", value: "Remove bookmark", comment: "Button accessibility label") : NSLocalizedString("reader.post.buttonBookmark.accessibilityLabel", value: "Bookmark", comment: "Button accessibility label")
         buttons.reblog.accessibilityLabel = NSLocalizedString("reader.post.buttonReblog.accessibilityLabel", value: "Reblog", comment: "Button accessibility label")
         buttons.comment.accessibilityLabel = {
