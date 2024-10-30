@@ -4,7 +4,7 @@ import Combine
 import WordPressKit
 import WordPressShared
 
-class ReaderDiscoverViewController: UIViewController, ReaderDiscoverHeaderViewDelegate, ReaderContentViewController {
+class ReaderDiscoverViewController: UIViewController, ReaderDiscoverHeaderViewDelegate {
     private let headerView = ReaderDiscoverHeaderView()
     private var selectedChannel: ReaderDiscoverChannel = .recommended
     private let topic: ReaderAbstractTopic
@@ -91,11 +91,9 @@ class ReaderDiscoverViewController: UIViewController, ReaderDiscoverHeaderViewDe
 
         self.streamVC = streamVC
 
-        if FeatureFlag.readerReset.enabled {
-            // Important to set before `viewDidLoad`
-            streamVC.isEmbeddedInDiscover = true
-            streamVC.setHeaderView(headerView)
-        }
+        // Important to set before `viewDidLoad`
+        streamVC.isEmbeddedInDiscover = true
+        streamVC.setHeaderView(headerView)
 
         addChild(streamVC)
         view.addSubview(streamVC.view)
@@ -112,12 +110,6 @@ class ReaderDiscoverViewController: UIViewController, ReaderDiscoverHeaderViewDe
     /// when you change the streams.
     private func deleteCachedReaderCards() {
         ReaderCardService.removeAllCards()
-    }
-
-    // MARK: - ReaderContentViewController (Deprecated)
-
-    func setContent(_ content: ReaderContent) {
-        streamVC?.setContent(content)
     }
 
     // MARK: - ReaderDiscoverHeaderViewDelegate
@@ -318,23 +310,11 @@ private class ReaderDiscoverStreamViewController: ReaderStreamViewController {
     }
 
     private func addObservers() {
-
-        // Listens for when the reader manage view controller is dismissed
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(manageControllerWasDismissed(_:)),
-                                               name: .readerManageControllerWasDismissed,
-                                               object: nil)
-
         // Listens for when a site is blocked
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(siteBlocked(_:)),
                                                name: .ReaderSiteBlocked,
                                                object: nil)
-    }
-
-    @objc private func manageControllerWasDismissed(_ notification: Foundation.Notification) {
-        shouldForceRefresh = true
-        self.displaySelectInterestsIfNeeded()
     }
 
     /// Update the post card when a site is blocked from post details.
@@ -356,10 +336,8 @@ private class ReaderDiscoverStreamViewController: ReaderStreamViewController {
 // MARK: - Select Interests Display
 private extension ReaderDiscoverStreamViewController {
     func displaySelectInterestsIfNeeded() {
-        selectInterestsViewController.userIsFollowingTopics { [weak self] isFollowing in
-            guard let self else {
-                return
-            }
+        selectInterestsVC.userIsFollowingTopics { [weak self] isFollowing in
+            guard let self else { return }
             if isFollowing {
                 self.hideSelectInterestsView()
             } else {

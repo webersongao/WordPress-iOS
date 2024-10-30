@@ -11,10 +11,8 @@ extension ReaderStreamViewController {
     }
 
     func headerForStream(_ topic: ReaderAbstractTopic?, isLoggedIn: Bool, container: UITableViewController) -> UIView? {
-        if FeatureFlag.readerReset.enabled, let topic {
-            if ReaderHelpers.topicIsFollowing(topic) {
-                return ReaderStreamTitleView.makeForFollowing()
-            }
+        if let topic, ReaderHelpers.topicIsFollowing(topic) {
+            return ReaderStreamTitleView.makeForFollowing()
         }
         if let topic,
            let header = headerForStream(topic) {
@@ -31,22 +29,19 @@ extension ReaderStreamViewController {
     }
 
     func headerForStream(_ topic: ReaderAbstractTopic) -> ReaderHeader? {
-        if ReaderHelpers.isTopicTag(topic) && !isContentFiltered {
+        if ReaderHelpers.isTopicTag(topic) {
             guard let nibViews = Bundle.main.loadNibNamed("ReaderTagStreamHeader", owner: nil, options: nil) as? [ReaderTagStreamHeader] else {
                 return nil
             }
 
             return nibViews.first
         }
-
         if ReaderHelpers.isTopicList(topic) {
             return Bundle.main.loadNibNamed("ReaderListStreamHeader", owner: nil, options: nil)?.first as? ReaderListStreamHeader
         }
-
-        if ReaderHelpers.isTopicSite(topic) && !isContentFiltered {
+        if ReaderHelpers.isTopicSite(topic) {
             return ReaderSiteHeaderView()
         }
-
         return nil
     }
 
@@ -149,16 +144,6 @@ extension ReaderStreamViewController {
 
         resultsStatusView.configureForLocalData(title: noResultsResponse.title, attributedSubtitle: messageText, image: "wp-illustration-reader-empty")
     }
-}
-
-// MARK: - Tags Feed
-
-extension ReaderStreamViewController {
-
-    var isTagsFeed: Bool {
-        contentType == .tags && readerTopic == nil
-    }
-
 }
 
 // MARK: - Tracks
