@@ -93,7 +93,9 @@ struct ReaderSiteHeader: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
-            countsDisplay
+            if viewModel.site?.isExternal == false {
+                countsDisplay
+            }
             if !viewModel.isFollowHidden {
                 ReaderFollowButton(isFollowing: viewModel.isFollowingSite,
                                    isEnabled: viewModel.isFollowEnabled,
