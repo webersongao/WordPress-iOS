@@ -34,7 +34,7 @@ final class ReaderSiteIconViewModel: ObservableObject {
     }
 
     func refresh() async {
-        if icon.imageURL == nil, let siteURL = URL(string: site.siteURL) {
+        if site.isExternal, icon.imageURL == nil, let siteURL = URL(string: site.siteURL) {
             if let faviconURL = FaviconService.shared.cachedFavicon(forURL: siteURL) {
                 icon.imageURL = faviconURL
             } else {
