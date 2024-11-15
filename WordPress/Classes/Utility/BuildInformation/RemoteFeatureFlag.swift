@@ -27,6 +27,7 @@ enum RemoteFeatureFlag: Int, CaseIterable {
     case inAppRating
     case siteMonitoring
     case inAppUpdates
+    case gravatarQuickEditor
     case dotComWebLogin
 
     var defaultValue: Bool {
@@ -81,6 +82,8 @@ enum RemoteFeatureFlag: Int, CaseIterable {
             return false
         case .inAppUpdates:
             return false
+        case .gravatarQuickEditor:
+            return BuildConfiguration.current ~= [.localDeveloper, .a8cBranchTest, .a8cPrereleaseTesting]
         case .dotComWebLogin:
             return false
         }
@@ -139,6 +142,8 @@ enum RemoteFeatureFlag: Int, CaseIterable {
             return "site_monitoring"
         case .inAppUpdates:
             return "in_app_updates"
+        case .gravatarQuickEditor:
+            return "gravatar_quick_editor"
         case .dotComWebLogin:
             return "jp_wpcom_web_login"
         }
@@ -196,6 +201,8 @@ enum RemoteFeatureFlag: Int, CaseIterable {
             return "Site Monitoring"
         case .inAppUpdates:
             return "In-App Updates"
+        case .gravatarQuickEditor:
+            return "Gravatar Quick Editor"
         case .dotComWebLogin:
             return "Log in to WordPress.com from web browser"
         }
