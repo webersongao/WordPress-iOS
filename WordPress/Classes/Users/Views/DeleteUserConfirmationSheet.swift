@@ -16,15 +16,9 @@ struct DeleteUserConfirmationSheet: View {
         NavigationView {
             Form {
                 Section {
-                    if deleteUserViewModel.isFetchingOtherUsers {
-                        LabeledContent(Strings.attributeContentToUserLabel) {
-                            ProgressView()
-                        }
-                    } else {
-                        Picker(Strings.attributeContentToUserLabel, selection: $deleteUserViewModel.selectedUser) {
-                            ForEach(deleteUserViewModel.otherUsers) { user in
-                                Text("\(user.displayName) (\(user.username))").tag(user)
-                            }
+                    Picker(Strings.attributeContentToUserLabel, selection: $deleteUserViewModel.selectedUser) {
+                        ForEach(deleteUserViewModel.otherUsers) { user in
+                            Text("\(user.displayName) (\(user.username))").tag(user)
                         }
                     }
                 } header: {
@@ -53,7 +47,6 @@ struct DeleteUserConfirmationSheet: View {
                     } label: {
                         Text(Strings.attributeContentConfirmationDeleteButton)
                     }
-                    .disabled(deleteUserViewModel.deleteButtonIsDisabled)
                 }
             }
             .onAppear {

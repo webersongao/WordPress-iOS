@@ -24,8 +24,6 @@ public struct UserListView: View {
             Group {
                 if let error = viewModel.error {
                     EmptyStateView(error.localizedDescription, systemImage: "exclamationmark.triangle.fill")
-                } else if viewModel.isLoadingItems {
-                    ProgressView()
                 } else {
                     List(viewModel.sortedUsers) { section in
                         Section(section.headerText) {
@@ -49,6 +47,20 @@ public struct UserListView: View {
             }
         }
         .navigationTitle(Strings.usersListTitle)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    if viewModel.isRefreshing {
+                        ProgressView()
+                    }
+                    Text(Strings.usersListTitle)
+                        .font(.headline)
+                }
+            }
+        }
+        .task(id: viewModel.query) {
+            await viewModel.performQuery()
+        }
         .task { await viewModel.onAppear() }
     }
 

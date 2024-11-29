@@ -7,14 +7,16 @@ import WordPressUI
 
 @testable import WordPress
 
-class UserServiceTests: XCTestCase {
+class UserListViewModelTests: XCTestCase {
     var service: UserService!
+    var viewModel: UserListViewModel!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() async throws {
+        try await super.setUp()
 
         let client = try WordPressClient(api: .init(urlSession: .shared, baseUrl: .parse(input: "https://example.com"), authenticationStategy: .none), rootUrl: .parse(input: "https://example.com"))
         service = UserService(client: client)
+        viewModel = await UserListViewModel(userService: service, currentUserId: 0)
     }
 
     override func tearDown() {
@@ -27,8 +29,8 @@ class UserServiceTests: XCTestCase {
         stubSuccessfullUsersFetch()
 
         let expectation = XCTestExpectation(description: "Updated after fetch")
-        let task = Task.detached { [self] in
-            for await _ in self.service.usersUpdates {
+        let task = Task.detached {
+            for await _ in await self.service.dataStore.listStream(query: .all) {
                 expectation.fulfill()
             }
         }
@@ -50,14 +52,14 @@ class UserServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Updated after fetch")
         expectation.expectedFulfillmentCount = 5
-        let task = Task.detached { [self] in
-            for await _ in self.service.usersUpdates {
+        let task = Task.detached {
+            for await _ in await self.service.dataStore.listStream(query: .all) {
                 expectation.fulfill()
             }
         }
 
         for _ in 1...expectation.expectedFulfillmentCount {
-            _ = try await service.fetchUsers()
+            _ = await viewModel.refreshItems()
         }
 
         await fulfillment(of: [expectation], timeout: 0.3)
@@ -70,18 +72,19 @@ class UserServiceTests: XCTestCase {
 
         let termination = XCTestExpectation(description: "Stream has finished")
         let task = Task.detached { [self] in
-            for await _ in self.service.usersUpdates {
+            for await _ in await self.service.dataStore.listStream(query: .all) {
                 // Do nothing
             }
             termination.fulfill()
         }
 
-        _ = try await service.fetchUsers()
-        _ = try await service.fetchUsers()
-        _ = try await service.fetchUsers()
+        _ = await viewModel.refreshItems()
+        _ = await viewModel.refreshItems()
+        _ = await viewModel.refreshItems()
 
         // Stream should be terminated once `service` is deallocated.
         service = nil
+        viewModel = nil
 
         await fulfillment(of: [termination], timeout: 0.3)
 
@@ -92,12 +95,12 @@ class UserServiceTests: XCTestCase {
         stubSuccessfullUsersFetch()
         stubDeleteUser(id: 34)
 
-        _ = try await service.fetchUsers()
-        let userFetched = await service.users?.contains { $0.id == 34 } == true
+        _ = await viewModel.refreshItems()
+        let userFetched = try await service.dataStore.list(query: .id([34])).isEmpty == false
         XCTAssertTrue(userFetched)
 
         try await service.deleteUser(id: 34, reassigningPostsTo: 1)
-        let userDeleted = await service.users?.contains { $0.id == 34 } == false
+        let userDeleted = try await service.dataStore.list(query: .id([34])).isEmpty
         XCTAssertTrue(userDeleted)
     }
 

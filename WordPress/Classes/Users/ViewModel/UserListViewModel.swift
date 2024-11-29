@@ -41,16 +41,12 @@ class UserListViewModel: ObservableObject {
         }
     }
 
-    /// The initial set of users fetched by `fetchItems`
-    private var users: [DisplayUser] = [] {
-        didSet {
-            sortedUsers = self.sortUsers(users)
-        }
-    }
-    private var updateUsersTask: Task<Void, Never>?
     private let userService: UserServiceProtocol
     private let currentUserId: Int32
     private var initialLoad = false
+
+    @Published
+    private(set) var query: UserDataStoreQuery = .all
 
     @Published
     private(set) var sortedUsers: [Section] = []
@@ -59,19 +55,15 @@ class UserListViewModel: ObservableObject {
     private(set) var error: Error? = nil
 
     @Published
-    private(set) var isLoadingItems: Bool = true
-
-    @Published
     var searchTerm: String = "" {
         didSet {
-            if searchTerm.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-                setSearchResults(sortUsers(users))
-            } else {
-                let searchResults = users.search(searchTerm, using: \.searchString)
-                setSearchResults([Section(id: .searchResult, users: searchResults)])
-            }
+            self.query = .search(searchTerm)
         }
     }
+
+    @Published
+    var isRefreshing: Bool = false
+    private var refreshItemsTask: Task<Void, Never>?
 
     init(userService: UserServiceProtocol, currentUserId: Int32) {
         self.userService = userService
@@ -79,50 +71,42 @@ class UserListViewModel: ObservableObject {
     }
 
     deinit {
-        updateUsersTask?.cancel()
+        refreshItemsTask?.cancel()
     }
 
     func onAppear() async {
-        if updateUsersTask == nil {
-            updateUsersTask = Task { @MainActor [weak self, usersUpdates = userService.usersUpdates] in
-                for await users in usersUpdates {
-                    guard let self else { break }
-
-                    self.users = users
-                }
-            }
-        }
-
         if !initialLoad {
             initialLoad = true
-            await fetchItems()
+            await refreshItems()
         }
     }
 
-    private func fetchItems() async {
-        isLoadingItems = true
-        defer { isLoadingItems = false }
-
-        _ = try? await userService.fetchUsers()
+    func performQuery() async {
+        let usersUpdates = await userService.dataStore.listStream(query: query)
+        for await users in usersUpdates {
+            switch users {
+            case let .success(users):
+                self.sortedUsers = self.sortUsers(users)
+            case let .failure(error):
+                self.error = error
+            }
+        }
     }
 
     @Sendable
     func refreshItems() async {
-        _ = try? await userService.fetchUsers()
-    }
-
-    func setUsers(_ newValue: [DisplayUser]) {
-        withAnimation {
-            self.users = newValue
-            self.sortedUsers = sortUsers(newValue)
-            isLoadingItems = false
+        refreshItemsTask?.cancel()
+        refreshItemsTask = Task {
+            isRefreshing = true
+            defer { isRefreshing = false }
+            do {
+                try await userService.fetchUsers()
+            } catch {
+                self.error = error
+            }
         }
-    }
 
-    func setSearchResults(_ newValue: [Section]) {
-        withAnimation {
-            self.sortedUsers = newValue
-        }
+        _ = await refreshItemsTask?.value
     }
 
     private func sortUsers(_ users: [DisplayUser]) -> [Section] {
