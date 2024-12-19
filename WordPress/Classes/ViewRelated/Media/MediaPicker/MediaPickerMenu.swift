@@ -265,6 +265,8 @@ extension MediaPickerMenu {
     }
 }
 
+// MARK: - Helpers
+
 extension MediaPickerMenu.MediaFilter {
     init?(_ mediaType: WPMediaType) {
         switch mediaType {
