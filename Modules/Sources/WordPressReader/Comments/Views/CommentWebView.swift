@@ -4,21 +4,18 @@ import UIKit
 @MainActor
 final class CommentWebView: UIView, CommentContentRendererDelegate {
     let renderer = WebCommentContentRenderer()
-    let webView: UIView
-    lazy var heightConstraint = webView.heightAnchor.constraint(equalToConstant: 20)
+    lazy var heightConstraint = renderer.view.heightAnchor.constraint(equalToConstant: 20)
 
     init(comment: String) {
-        let webView = renderer.render(comment: comment)
-        self.webView = webView
-
         super.init(frame: .zero)
 
-        renderer.delegate = self
-
-        addSubview(webView)
-        webView.pinEdges()
+        addSubview(renderer.view)
+        renderer.view.pinEdges()
 
         heightConstraint.isActive = true
+
+        renderer.delegate = self
+        renderer.render(comment: comment)
     }
 
     required init?(coder: NSCoder) {
