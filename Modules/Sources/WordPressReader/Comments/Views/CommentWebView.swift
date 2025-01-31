@@ -48,6 +48,13 @@ final class CommentWebView: UIView, CommentContentRendererDelegate {
     """)
 }
 
+@available(iOS 17, *)
+#Preview("Media") {
+    makeView(comment: """
+    <p>Test image in the middle.</p>\n<figure class=\"wp-block-image size-medium\"><img src=\"https://fastly.picsum.photos/id/31/3264/4912.jpg?hmac=lfmmWE3h_aXmRwDDZ7pZb6p0Foq6u86k_PpaFMnq0r8\" alt=\"\" /></figure>\n<p>Text below.</p>\n
+    """)
+}
+
 @MainActor
 private func makeView(comment: String) -> UIView {
     let webView = CommentWebView(comment: comment)
