@@ -77,27 +77,27 @@ extension CommentGutenbergEditorViewController: GutenbergKit.EditorViewControlle
     func editorDidLoad(_ viewContoller: GutenbergKit.EditorViewController) {
         // Do nothing
     }
-    
+
     func editor(_ viewContoller: GutenbergKit.EditorViewController, didDisplayInitialContent content: String) {
         // Do nothing
     }
-    
+
     func editor(_ viewContoller: GutenbergKit.EditorViewController, didEncounterCriticalError error: any Error) {
         // Do nothing
     }
-    
+
     func editor(_ viewController: GutenbergKit.EditorViewController, didUpdateContentWithState state: GutenbergKit.EditorState) {
         editorDidUpdate.send(())
     }
-    
+
     func editor(_ viewController: GutenbergKit.EditorViewController, didUpdateHistoryState state: GutenbergKit.EditorState) {
         // Do nothing
     }
-    
+
     func editor(_ viewController: GutenbergKit.EditorViewController, didLogException error: GutenbergKit.GutenbergJSException) {
         // Do nothing
     }
-    
+
     func editor(_ viewController: GutenbergKit.EditorViewController, didRequestMediaFromSiteMediaLibrary config: GutenbergKit.OpenMediaLibraryAction) {
         // Do nothing
     }
