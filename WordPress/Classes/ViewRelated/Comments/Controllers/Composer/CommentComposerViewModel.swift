@@ -11,6 +11,10 @@ final class CommentComposerViewModel {
     private let parameters: CommentComposerParameters
     private var context: NSManagedObjectContext
 
+    var isGutenbergEnabled: Bool {
+        FeatureFlag.readerGutenbergCommentComposer.enabled
+    }
+
     /// Send a top-level comment to the given post.
     convenience init(post: ReaderPost) {
         let parameters = CommentComposerParameters(siteID: post.siteID, context: .post)

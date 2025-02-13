@@ -1,27 +1,44 @@
 import UIKit
 import WordPressUI
 
-fileprivate enum SuggestionsPosition: Int {
-    case hidden
-    case top
-    case bottom
+protocol CommentEditor {
+    var text: String { get set }
+    var isEnabled: Bool { get set }
 }
 
-final class CommentComposerViewController: UIViewController {
-    private let buttonSend = UIButton(configuration: {
-        var configuration = UIButton.Configuration.borderedProminent()
-        configuration.title = Strings.send
-        configuration.cornerStyle = .capsule
-        configuration.baseBackgroundColor = UIColor.label
-        configuration.baseForegroundColor = UIColor.systemBackground
-        return configuration
-    }())
+protocol CommentEditorDelegate: AnyObject {
+    func commentEditor(_ viewController: UIViewController, didUpateText text: String)
+}
+
+final class CommentPlainTextEditorViewController: UIViewController, CommentEditor {
+    var suggestionsViewModel: SuggestionsListViewModel?
+
+    weak var delegate: CommentEditorDelegate?
+
+    var text: String {
+        set { textView.text = newValue }
+        get { textView.text }
+    }
+
+    var isEnabled: Bool = true {
+        didSet {
+            if !isEnabled {
+                textView.resignFirstResponder()
+            }
+            textView.alpha = isEnabled ? 1.0 : 0.5
+            textView.isUserInteractionEnabled = isEnabled
+        }
+    }
+
+    var placeholder: String? {
+        didSet {
+            placeholderLabel.text = placeholder
+        }
+    }
 
     private let textView = UITextView()
     private let placeholderLabel = UILabel()
     private var suggestionsView: SuggestionsTableView?
-
-    private let viewModel: CommentComposerViewModel
 
     // Static margin between the suggestions view and the text cursor position
     private let suggestionViewMargin: CGFloat = 5
@@ -29,26 +46,10 @@ final class CommentComposerViewController: UIViewController {
     private var suggestionsTopAnchorConstraint: NSLayoutConstraint?
     private var didChangeText: Bool = false
 
-    init(viewModel: CommentComposerViewModel) {
-        self.viewModel = viewModel
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
-
-        setupTextView()
-        setupNavigationBar()
-        setupAccessibility()
-
-        updateInterface()
+        setupView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -57,16 +58,16 @@ final class CommentComposerViewController: UIViewController {
         textView.becomeFirstResponder()
         setupSuggestionsTableViewIfNeeded()
 
-        WPAnalytics.track(.commentFullScreenEntered)
     }
 
-    private func setupTextView() {
+    private func setupView() {
         textView.font = .preferredFont(forTextStyle: .body)
         textView.textContainerInset = UIEdgeInsets(horizontal: 11, vertical: 16)
         textView.delegate = self
+        textView.accessibilityIdentifier = "edit_comment_text_view"
 
         placeholderLabel.font = .preferredFont(forTextStyle: .body)
-        placeholderLabel.text = viewModel.placeholder
+        placeholderLabel.text = placeholder
         placeholderLabel.textColor = .tertiaryLabel
         placeholderLabel.isHidden = !textView.text.isEmpty
 
@@ -74,19 +75,13 @@ final class CommentComposerViewController: UIViewController {
         placeholderLabel.pinEdges([.leading, .top], insets: UIEdgeInsets(.all, 16))
 
         view.addSubview(textView)
-        textView.pinEdges([.top, .horizontal], to: view.safeAreaLayoutGuide)
-        textView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
-    }
-
-    private func setupAccessibility() {
-        textView.accessibilityIdentifier = "edit_comment_text_view"
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "button_send_comment"
+        textView.pinEdges()
     }
 
     // MARK: - Suggestions
 
     private func setupSuggestionsTableViewIfNeeded() {
-        guard let viewModel = viewModel.suggestionsViewModel else {
+        guard let viewModel = suggestionsViewModel else {
             return
         }
         let suggestionsView = SuggestionsTableView(viewModel: viewModel, delegate: self)
@@ -96,87 +91,12 @@ final class CommentComposerViewController: UIViewController {
 
         attachSuggestionsViewIfNeeded()
     }
-
-    // MARK: - Actions
-
-    @objc private func buttonSendTapped() {
-        Task {
-            await sendComment()
-        }
-    }
-
-    @MainActor
-    private func sendComment() async {
-        do {
-            setLoading(true)
-            try await viewModel.save(textView.text ?? "")
-            UINotificationFeedbackGenerator().notificationOccurred(.success)
-            presentingViewController?.dismiss(animated: true)
-        } catch {
-            setLoading(false)
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
-            Notice(title: Strings.failedToSend, message: error.localizedDescription.stringByDecodingXMLCharacters()).post()
-        }
-    }
-
-    private func setLoading(_ isLoading: Bool) {
-        navigationItem.rightBarButtonItem = isLoading ? .activityIndicator : UIBarButtonItem(customView: buttonSend)
-        navigationItem.leftBarButtonItem?.isEnabled = !isLoading
-        textView.resignFirstResponder()
-        textView.alpha = isLoading ? 0.5 : 1.0
-        textView.isUserInteractionEnabled = !isLoading
-    }
-
-    @objc private func buttonCancelTapped() {
-        if text.isEmpty {
-            presentingViewController?.dismiss(animated: true)
-        } else {
-            showCloseDraftConfirmationAlert()
-        }
-    }
-
-    private func showCloseDraftConfirmationAlert() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addCancelActionWithTitle(Strings.closeConfirmationAlertCancel)
-        alert.addDestructiveActionWithTitle(Strings.closeConfirmationAlertDelete) { [weak self] _ in
-            self?.presentingViewController?.dismiss(animated: true)
-        }
-        // TODO: (kean) implement draft saving
-//        alert.addActionWithTitle(Strings.closeConfirmationAlertSaveDraft, style: .default) { _ in
-//
-//        }
-        alert.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
-        present(alert, animated: true, completion: nil)
-    }
-
-    // MARK: - Private
-
-    private func setupNavigationBar() {
-        title = viewModel.navigationTitle
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: SharedStrings.Button.cancel, style: .plain, target: self, action: #selector(buttonCancelTapped))
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonSend)
-        buttonSend.addTarget(self, action: #selector(buttonSendTapped), for: .primaryActionTriggered)
-    }
-
-    /// Changes the `refreshButton` enabled state
-    private func updateInterface() {
-        let isEmpty = text.isEmpty
-        buttonSend.isEnabled = !isEmpty
-        isModalInPresentation = !isEmpty
-    }
-
-    private var text: String {
-        textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
 }
 
-extension CommentComposerViewController: UITextViewDelegate {
+extension CommentPlainTextEditorViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
-
-        updateInterface()
+        delegate?.commentEditor(self, didUpateText: textView.text)
     }
 
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -204,7 +124,7 @@ extension CommentComposerViewController: UITextViewDelegate {
     }
 }
 
-extension CommentComposerViewController: SuggestionsTableViewDelegate {
+extension CommentPlainTextEditorViewController: SuggestionsTableViewDelegate {
     func suggestionsTableView(_ suggestionsTableView: SuggestionsTableView, didSelectSuggestion suggestion: String?, forSearchText text: String) {
         replaceTextAtCaret(text as NSString?, withText: suggestion)
         suggestionsTableView.showSuggestions(forWord: String())
@@ -223,9 +143,7 @@ extension CommentComposerViewController: SuggestionsTableViewDelegate {
     }
 }
 
-// MARK: - Suggestions View Helpers
-//
-private extension CommentComposerViewController {
+private extension CommentPlainTextEditorViewController {
 
     /// Calculates a CGRect for the text caret and converts its value to the view's coordindate system
     var absoluteTextCursorRect: CGRect {
@@ -310,10 +228,8 @@ private extension CommentComposerViewController {
     }
 }
 
-private enum Strings {
-    static let send = NSLocalizedString("commentComposer.send", value: "Send", comment: "Navigation bar button title")
-    static let failedToSend = NSLocalizedString("commentComposer.failedToSentComment", value: "Failed to send comment", comment: "Error title")
-    static let closeConfirmationAlertCancel = NSLocalizedString("commentComposer.closeConfirmationAlert.keepEditing", value: "Keep Editing", comment: "Button to keep the changes in an alert confirming discaring changes")
-    static let closeConfirmationAlertDelete = NSLocalizedString("commentComposer.closeConfirmationAlert.deleteDraft", value: "Delete Draft", comment: "Button in an alert confirming discaring a new draft")
-    static let closeConfirmationAlertSaveDraft = NSLocalizedString("commentComposer.closeConfirmationAlert.saveDraft", value: "Save Draft", comment: "Button in an alert confirming saving a new draft")
+private enum SuggestionsPosition: Int {
+    case hidden
+    case top
+    case bottom
 }
