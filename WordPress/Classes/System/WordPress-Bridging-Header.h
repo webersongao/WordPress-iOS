@@ -13,7 +13,6 @@
 #import "CommentService.h"
 #import "CommentsViewController+Network.h"
 #import "Constants.h"
-#import "CoreDataStack.h"
 
 #import "EditCommentViewController.h"
 

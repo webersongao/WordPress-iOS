@@ -1,7 +1,7 @@
 #import "PostService.h"
 #import "PostCategory.h"
 #import "PostCategoryService.h"
-#import "CoreDataStack.h"
+@import WordPressDataObjC;
 #import "CommentService.h"
 #import "MediaService.h"
 #import "Media.h"
