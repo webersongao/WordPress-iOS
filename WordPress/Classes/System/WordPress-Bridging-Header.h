@@ -72,7 +72,6 @@
 
 #import "WPAccount.h"
 #import "WPActivityDefaults.h"
-#import "WPAnimatedBox.h"
 #import "WPAnalyticsTrackerWPCom.h"
 #import "WPAppAnalytics.h"
 #import "WPAnalyticsTrackerAutomatticTracks.h"
