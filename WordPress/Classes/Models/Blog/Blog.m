@@ -4,6 +4,7 @@
 @import WordPressDataObjC;
 #import "WPUserAgent.h"
 #import "WordPress-Swift.h"
+@import SFHFKeychainUtils;
 
 @import NSObject_SafeExpectations;
 @import NSURL_IDN;
