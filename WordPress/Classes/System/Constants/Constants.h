@@ -15,11 +15,6 @@ extern NSString *const WPComDomain;
 ///
 extern NSString *const WPPushNotificationAppId;
 
-/// Keychain + User Defaults Constants
-///
-extern NSString *const WPAppGroupName;
-extern NSString *const WPAppKeychainAccessGroup;
-
 /// Apple ID Constants
 ///
 extern NSString *const WPAppleIDKeychainUsernameKey;

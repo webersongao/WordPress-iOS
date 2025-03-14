@@ -1,4 +1,5 @@
 import Intents
+import BuildSettingsKit
 import JetpackStatsWidgetsCore
 
 class SitesDataProvider {
@@ -59,8 +60,7 @@ class SitesDataProvider {
     // MARK: - Default Site
 
     private var defaultSiteID: Int? {
-
-        return UserDefaults(suiteName: WPAppGroupName)?.object(forKey: WidgetStatsConfiguration.userDefaultsSiteIdKey) as? Int
+        UserDefaults(suiteName: BuildSettings.appGroupName)?.object(forKey: WidgetStatsConfiguration.userDefaultsSiteIdKey) as? Int
     }
 
     var defaultSite: Site? {

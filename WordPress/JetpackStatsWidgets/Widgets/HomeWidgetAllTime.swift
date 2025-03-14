@@ -1,9 +1,10 @@
 import WidgetKit
 import SwiftUI
+import BuildSettingsKit
 import JetpackStatsWidgetsCore
 
 struct HomeWidgetAllTime: Widget {
-    private let tracks = Tracks(appGroupName: WPAppGroupName)
+    private let tracks = Tracks(appGroupName: BuildSettings.appGroupName)
 
     private let placeholderContent = HomeWidgetAllTimeData(
         siteID: 0,
