@@ -1,5 +1,6 @@
 import UIKit
 import WordPressUI
+import FormattableContentKit
 
 /// Encapsulates logic to approve a comment
 class ApproveComment: DefaultNotificationActionCommand {

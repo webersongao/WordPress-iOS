@@ -10,6 +10,7 @@ let package = Package(
     products: XcodeSupport.products + [
         .library(name: "AsyncImageKit", targets: ["AsyncImageKit"]),
         .library(name: "DesignSystem", targets: ["DesignSystem"]),
+        .library(name: "FormattableContentKit", targets: ["FormattableContentKit"]),
         .library(name: "JetpackStatsWidgetsCore", targets: ["JetpackStatsWidgetsCore"]),
         .library(name: "SFHFKeychainUtils", targets: ["SFHFKeychainUtils"]),
         .library(name: "WordPressData", targets: ["WordPressData"]),
@@ -69,6 +70,7 @@ let package = Package(
             resources: [.process("Resources")],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
+        .target(name: "FormattableContentKit", dependencies: ["WordPressShared"]),
         .target(name: "JetpackStatsWidgetsCore", swiftSettings: [.swiftLanguageMode(.v5)]),
         // SFHFKeychainUtils is an old Objective-C keychain wrapper.
         // The implementatoin predates ARC, hence the dedicated target with ARC disabled, for the time being.
@@ -202,6 +204,7 @@ enum XcodeSupport {
             .xcodeTarget("XcodeTarget_App", dependencies: [
                 "DesignSystem",
                 "BuildSettingsKit",
+                "FormattableContentKit",
                 "JetpackStatsWidgetsCore",
                 "SFHFKeychainUtils",
                 "WordPressData",
@@ -253,10 +256,11 @@ enum XcodeSupport {
             .xcodeTarget("XcodeTarget_ShareExtension", dependencies: shareAndDraftExtensionsDependencies),
             .xcodeTarget("XcodeTarget_DraftActionExtension", dependencies: shareAndDraftExtensionsDependencies),
             .xcodeTarget("XcodeTarget_NotificationServiceExtension", dependencies: [
-                "SFHFKeychainUtils",
                 "BuildSettingsKit",
-                "WordPressShared",
+                "FormattableContentKit",
+                "SFHFKeychainUtils",
                 "TracksMini",
+                "WordPressShared",
             ]),
             .xcodeTarget("XcodeTarget_StatsWidget", dependencies: [
                 "BuildSettingsKit",

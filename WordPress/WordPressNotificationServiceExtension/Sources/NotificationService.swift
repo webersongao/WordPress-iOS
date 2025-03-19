@@ -4,6 +4,7 @@ import BuildSettingsKit
 import TracksMini
 import WordPressKit
 import WordPressShared
+import FormattableContentKit
 
 // MARK: - NotificationService
 

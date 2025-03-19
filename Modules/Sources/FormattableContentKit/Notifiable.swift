@@ -1,12 +1,10 @@
-import WordPressKit
-
 /// Known kinds of Notifications
 import Foundation
 
 // MARK: - NotificationKind
 
 /// Characterizes the known types of notification types
-enum NotificationKind: String {
+public enum NotificationKind: String, Sendable {
     case comment = "comment"
     case commentLike = "comment_like"
     case follow = "follow"
@@ -22,7 +20,7 @@ enum NotificationKind: String {
 
 extension NotificationKind {
     /// Enumerates the Kinds that currently provide Rich Notification support
-    private static var kindsWithRichNotificationSupport: Set<NotificationKind> = [
+    private static let kindsWithRichNotificationSupport: Set<NotificationKind> = [
         .comment,
         .commentLike,
         .like,
@@ -31,7 +29,7 @@ extension NotificationKind {
     ]
 
     /// Enumerates the Kinds of rich notifications that include body text
-    private static var kindsWithoutRichNotificationBodyText: Set<NotificationKind> = [
+    private static let kindsWithoutRichNotificationBodyText: Set<NotificationKind> = [
         .commentLike,
         .like,
         .login,
@@ -41,7 +39,7 @@ extension NotificationKind {
     ///
     /// - Parameter kind: the notification type to evaluate
     /// - Returns: `true` if the kind of rich notification includes a body; `false` otherwise
-    static func omitsRichNotificationBody(_ kind: NotificationKind) -> Bool {
+    public static func omitsRichNotificationBody(_ kind: NotificationKind) -> Bool {
         return kindsWithoutRichNotificationBodyText.contains(kind)
     }
 
@@ -49,14 +47,14 @@ extension NotificationKind {
     ///
     /// - Parameter kind: the notification type to evaluate
     /// - Returns: `true` if the kind supports rich notifications; `false` otherwise
-    static func isSupportedByRichNotifications(_ kind: NotificationKind) -> Bool {
+    public static func isSupportedByRichNotifications(_ kind: NotificationKind) -> Bool {
         return kindsWithRichNotificationSupport.contains(kind)
     }
 
     /// Indicates whether or not a given kind is view milestone.
     /// - Parameter kind: the notification type to evaluate
     /// - Returns: `true` if the notification kind is `viewMilestone`, `false` otherwise
-    static func isViewMilestone(_ kind: NotificationKind) -> Bool {
+    public static func isViewMilestone(_ kind: NotificationKind) -> Bool {
         return kind == .viewMilestone
     }
 
@@ -65,7 +63,7 @@ extension NotificationKind {
     ///
     /// NB: These should all be set on the server, but in practice, they are not.
     ///
-    var contentExtensionCategoryIdentifier: String? {
+    public var contentExtensionCategoryIdentifier: String? {
         switch self {
         case .commentLike, .like, .matcher, .login:
             return rawValue
@@ -78,7 +76,7 @@ extension NotificationKind {
 // MARK: - Notifiable
 
 /// This protocol represents the traits of a local or remote notification.
-protocol Notifiable {
+public protocol Notifiable {
     /// The unique identifier for the notification; `note_id` in the APNS payload, `notificationId` in Core Data
     var notificationIdentifier: String { get }
 
@@ -90,19 +88,10 @@ protocol Notifiable {
 }
 
 extension Notifiable {
-    var kind: NotificationKind {
+    public var kind: NotificationKind {
         guard let type, let kind = NotificationKind(rawValue: type) else {
             return .unknown
         }
         return kind
-    }
-}
-
-// MARK: - RemoteNotification
-
-/// RemoteNotification is located in WordPressKit
-extension RemoteNotification: Notifiable {
-    var notificationIdentifier: String {
-        return notificationId
     }
 }
