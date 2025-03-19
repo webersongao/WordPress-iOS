@@ -3213,7 +3213,6 @@
 				"Extensions/String+RegEx.swift",
 				"Extensions/UIApplication+mainWindow.swift",
 				Services/ShareExtensionService.swift,
-				"Utility/App Configuration/AppColor.swift",
 				"Utility/App Configuration/AppConfiguration.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
 				"Utility/App Configuration/ExtensionConfiguration.swift",
@@ -3238,7 +3237,6 @@
 				"Extensions/String+RegEx.swift",
 				"Extensions/UIApplication+mainWindow.swift",
 				Services/ShareExtensionService.swift,
-				"Utility/App Configuration/AppColor.swift",
 				"Utility/App Configuration/AppConfiguration.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
 				"Utility/App Configuration/ExtensionConfiguration.swift",
@@ -3318,7 +3316,6 @@
 				"Extensions/String+RegEx.swift",
 				"Extensions/UIApplication+mainWindow.swift",
 				Services/ShareExtensionService.swift,
-				"Utility/App Configuration/AppColor.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
 				Utility/BuildInformation/BuildConfiguration.swift,
 				Utility/Logging/CocoaLumberjack.swift,
@@ -3341,7 +3338,6 @@
 				"Extensions/String+RegEx.swift",
 				"Extensions/UIApplication+mainWindow.swift",
 				Services/ShareExtensionService.swift,
-				"Utility/App Configuration/AppColor.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
 				Utility/BuildInformation/BuildConfiguration.swift,
 				Utility/Logging/CocoaLumberjack.swift,
@@ -3388,7 +3384,6 @@
 		24CE68B92CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackStatsWidgets" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Utility/App Configuration/AppColor.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
 				Utility/BuildInformation/BuildConfiguration.swift,
 			);
@@ -7768,6 +7763,9 @@
 				sk,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			packageReferences = (
+				0C0C6BC22D8A14DD0056E696 /* XCLocalSwiftPackageReference "../Modules" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
@@ -13017,6 +13015,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0C0C6BC22D8A14DD0056E696 /* XCLocalSwiftPackageReference "../Modules" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Modules;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		0C2155A52C39A24D00EFE2C0 /* XcodeTarget_UITests */ = {

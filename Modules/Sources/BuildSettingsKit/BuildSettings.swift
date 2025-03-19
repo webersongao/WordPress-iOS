@@ -12,6 +12,7 @@ import Foundation
 /// - **Test** – `BuildSettings` are not available when running unit tests as
 /// they are incompatible with parallelized tests and are generally not recommended.
 public struct BuildSettings: Sendable {
+    public var brand: AppBrand
     public var pushNotificationAppID: String
     public var appGroupName: String
     public var appKeychainAccessGroup: String
@@ -20,8 +21,17 @@ public struct BuildSettings: Sendable {
 
     public static var current: BuildSettings {
         switch BuildSettingsEnvironment.current {
-        case .live: .live
-        case .preview: .preview
+        case .live:
+            return .live
+        case .preview:
+            return .preview
+        case .test:
+            fatalError("BuildSettings are unavailable when running unit tests. Make sure to inject the values manually in system under test.")
         }
     }
+}
+
+public enum AppBrand: String, Sendable {
+    case wordpress
+    case jetpack
 }
