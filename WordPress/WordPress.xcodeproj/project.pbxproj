@@ -3112,7 +3112,6 @@
 				"Extensions/Colors and Styles/WPStyleGuide+ApplicationStyles.swift",
 				"Utility/App Configuration/AppConfiguration.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
-				Utility/BuildInformation/BuildConfiguration.swift,
 				ViewRelated/Cells/WPReusableTableViewCells.swift,
 				ViewRelated/Views/NoResults.storyboard,
 				ViewRelated/Views/NoResultsViewController.swift,
@@ -3125,7 +3124,6 @@
 				"Extensions/Colors and Styles/WPStyleGuide+ApplicationStyles.swift",
 				"Utility/App Configuration/AppConfiguration.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
-				Utility/BuildInformation/BuildConfiguration.swift,
 				ViewRelated/Cells/WPReusableTableViewCells.swift,
 				ViewRelated/Views/NoResults.storyboard,
 				ViewRelated/Views/NoResultsViewController.swift,
@@ -3136,7 +3134,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Utility/App Configuration/AppConfiguration.swift",
-				Utility/BuildInformation/BuildConfiguration.swift,
 			);
 			target = 7358E6B7210BD318002323EB /* WordPressNotificationServiceExtension */;
 		};
@@ -3161,7 +3158,6 @@
 			membershipExceptions = (
 				"Extensions/Colors and Styles/WPStyleGuide+ApplicationStyles.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
-				Utility/BuildInformation/BuildConfiguration.swift,
 				ViewRelated/Cells/WPReusableTableViewCells.swift,
 				ViewRelated/Views/NoResults.storyboard,
 				ViewRelated/Views/NoResultsViewController.swift,
@@ -3173,19 +3169,11 @@
 			membershipExceptions = (
 				"Extensions/Colors and Styles/WPStyleGuide+ApplicationStyles.swift",
 				"Utility/App Configuration/AppStyleGuide.swift",
-				Utility/BuildInformation/BuildConfiguration.swift,
 				ViewRelated/Cells/WPReusableTableViewCells.swift,
 				ViewRelated/Views/NoResults.storyboard,
 				ViewRelated/Views/NoResultsViewController.swift,
 			);
 			target = 8096213028E55C9400940A5D /* JetpackDraftActionExtension */;
-		};
-		24CE68B82CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackNotificationServiceExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Utility/BuildInformation/BuildConfiguration.swift,
-			);
-			target = 80F6D01F28EE866A00953C1A /* JetpackNotificationServiceExtension */;
 		};
 		24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -3208,7 +3196,6 @@
 				24CE68B52CD3375300C7B37D /* Exceptions for "Classes" folder in "Jetpack" target */,
 				24CE68B62CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackShareExtension" target */,
 				24CE68B72CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackDraftActionExtension" target */,
-				24CE68B82CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackNotificationServiceExtension" target */,
 				24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */,
 			);
 			path = Classes;
