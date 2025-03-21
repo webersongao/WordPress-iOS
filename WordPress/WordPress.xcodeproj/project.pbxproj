@@ -924,7 +924,6 @@
 		A01C55480E25E0D000D411F2 /* defaultPostTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = A01C55470E25E0D000D411F2 /* defaultPostTemplate.html */; };
 		AB2211F425ED6E7A00BF72FC /* CommentServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2211F325ED6E7A00BF72FC /* CommentServiceTests.swift */; };
 		AC68C9CA28E5DF14009030A9 /* NotificationsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68C9C928E5DF14009030A9 /* NotificationsViewControllerTests.swift */; };
-		ACACE3AE28D729FA000992F9 /* NoResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACE3AD28D729FA000992F9 /* NoResultsViewControllerTests.swift */; };
 		AE3047AA270B66D300FE9266 /* Scanner+QuotedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3047A9270B66D300FE9266 /* Scanner+QuotedTextTests.swift */; };
 		AEE0828A2681C23C00DCF54B /* GutenbergRefactoredGalleryUploadProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE082892681C23C00DCF54B /* GutenbergRefactoredGalleryUploadProcessorTests.swift */; };
 		B030FE0A27EBF0BC000F6F5E /* SiteCreationIntentTracksEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030FE0927EBF0BC000F6F5E /* SiteCreationIntentTracksEventTests.swift */; };
@@ -2614,7 +2613,6 @@
 		A20971B819B0BC570058F395 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AB2211F325ED6E7A00BF72FC /* CommentServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServiceTests.swift; sourceTree = "<group>"; };
 		AC68C9C928E5DF14009030A9 /* NotificationsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewControllerTests.swift; sourceTree = "<group>"; };
-		ACACE3AD28D729FA000992F9 /* NoResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsViewControllerTests.swift; sourceTree = "<group>"; };
 		AE3047A9270B66D300FE9266 /* Scanner+QuotedTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scanner+QuotedTextTests.swift"; sourceTree = "<group>"; };
 		AEE082892681C23C00DCF54B /* GutenbergRefactoredGalleryUploadProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GutenbergRefactoredGalleryUploadProcessorTests.swift; sourceTree = "<group>"; };
 		B030FE0927EBF0BC000F6F5E /* SiteCreationIntentTracksEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteCreationIntentTracksEventTests.swift; sourceTree = "<group>"; };
@@ -3110,8 +3108,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Utility/App Configuration/AppConfiguration.swift",
-				ViewRelated/Views/NoResults.storyboard,
-				ViewRelated/Views/NoResultsViewController.swift,
 			);
 			target = 932225A61C7CE50300443B02 /* WordPressShareExtension */;
 		};
@@ -3119,8 +3115,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Utility/App Configuration/AppConfiguration.swift",
-				ViewRelated/Views/NoResults.storyboard,
-				ViewRelated/Views/NoResultsViewController.swift,
 			);
 			target = 74576671202B558C00F42E40 /* WordPressDraftActionExtension */;
 		};
@@ -3147,22 +3141,6 @@
 			);
 			target = FABB1F8F2602FC2C00C8785C /* Jetpack */;
 		};
-		24CE68B62CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackShareExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewRelated/Views/NoResults.storyboard,
-				ViewRelated/Views/NoResultsViewController.swift,
-			);
-			target = 809620CF28E540D700940A5D /* JetpackShareExtension */;
-		};
-		24CE68B72CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackDraftActionExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewRelated/Views/NoResults.storyboard,
-				ViewRelated/Views/NoResultsViewController.swift,
-			);
-			target = 8096213028E55C9400940A5D /* JetpackDraftActionExtension */;
-		};
 		24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -3182,8 +3160,6 @@
 				24CE68B22CD3375300C7B37D /* Exceptions for "Classes" folder in "WordPressNotificationServiceExtension" target */,
 				24CE68B42CD3375300C7B37D /* Exceptions for "Classes" folder in "WordPressUITests" target */,
 				24CE68B52CD3375300C7B37D /* Exceptions for "Classes" folder in "Jetpack" target */,
-				24CE68B62CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackShareExtension" target */,
-				24CE68B72CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackDraftActionExtension" target */,
 				24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */,
 			);
 			path = Classes;
@@ -3976,13 +3952,6 @@
 				321955C024BE4EBF00E3F316 /* ReaderSelectInterestsCoordinatorTests.swift */,
 			);
 			name = "Select Interests";
-			sourceTree = "<group>";
-		};
-		325D3B3A23A8372500766DF6 /* Comments */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Comments;
 			sourceTree = "<group>";
 		};
 		3F00739D2915BAA100A37FD1 /* Notifications Permission */ = {
@@ -4928,15 +4897,6 @@
 			path = SiteCreation;
 			sourceTree = "<group>";
 		};
-		732A4738218786F30015DA74 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				ACACE3AF28D76A62000992F9 /* Controllers */,
-			);
-			name = Views;
-			path = ViewRelated/Views;
-			sourceTree = "<group>";
-		};
 		7335AC55212202E30012EF2D /* FormattableContent */ = {
 			isa = PBXGroup;
 			children = (
@@ -5442,14 +5402,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		ACACE3AF28D76A62000992F9 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				ACACE3AD28D729FA000992F9 /* NoResultsViewControllerTests.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		B02D1EC12835348900F20359 /* spectrum-2022 */ = {
 			isa = PBXGroup;
 			children = (
@@ -5670,7 +5622,6 @@
 				F44FB6C92878957E0001E3CE /* Mention */,
 				8B69F0E2255C2BC0006B1CEF /* Activity */,
 				8BD36E042395CC2F00EFFF1C /* Aztec */,
-				325D3B3A23A8372500766DF6 /* Comments */,
 				BEC8A3FD1B4BAA08001CB8C3 /* Blog */,
 				E1B921BA1C0ED481003EA3CB /* Cells */,
 				C3E42AAD27F4D2CF00546706 /* Menus */,
@@ -5681,7 +5632,6 @@
 				DC772AFB28200A3600664C02 /* Stats */,
 				BE20F5E21B2F739F0020694C /* System */,
 				DC8F61F9270331DF0087AC5D /* Tools */,
-				732A4738218786F30015DA74 /* Views */,
 			);
 			name = ViewRelated;
 			sourceTree = "<group>";
@@ -9017,7 +8967,6 @@
 				24C69A8B2612421900312D9A /* UserSettingsTests.swift in Sources */,
 				DC13DB7E293FD09F00E33561 /* StatsInsightsStoreTests.swift in Sources */,
 				0C9CD79D2B9A6ABF0045BE03 /* PostRepositorySaveTests.swift in Sources */,
-				ACACE3AE28D729FA000992F9 /* NoResultsViewControllerTests.swift in Sources */,
 				4A2C73E42A943DEA00ACE79E /* TaggedManagedObjectIDTests.swift in Sources */,
 				0CF7D6C32ABB753A006D1E89 /* MediaImageServiceTests.swift in Sources */,
 				8BFE36FF230F1C850061EBA8 /* AbstractPost+fixLocalMediaURLsTests.swift in Sources */,
