@@ -1,7 +1,7 @@
-import Foundation
+import UIKit
 import BuildSettingsKit
 import WordPressUI
-import UIKit
+import WordPressKit
 import WordPressShared
 import AutomatticAbout
 import SwiftUI
@@ -43,13 +43,13 @@ class AppAboutScreenConfiguration: AboutScreenConfiguration {
                 }),
                 AboutItem(title: TextContent.share, action: { [weak self] context in
                     self?.tracker.buttonPressed(.share)
-                    self?.sharePresenter.present(for: AppConstants.shareAppName, in: context.viewController, source: .about, sourceView: context.sourceView)
+                    self?.sharePresenter.present(for: BuildSettings.current.shareAppName, in: context.viewController, source: .about, sourceView: context.sourceView)
                 }),
-                AboutItem(title: TextContent.twitter, subtitle: AppConstants.productTwitterHandle, cellStyle: .value1, action: { [weak self] context in
+                AboutItem(title: TextContent.twitter, subtitle: BuildSettings.current.about.twitterHandle, cellStyle: .value1, action: { [weak self] context in
                     self?.tracker.buttonPressed(.twitter)
                     self?.webViewPresenter.presentInNavigationControlller(url: Links.twitter, context: context)
                 }),
-                AboutItem(title: Strings.current.blogName, subtitle: AppConstants.productBlogDisplayURL, cellStyle: .value1, action: { [weak self] context in
+                AboutItem(title: Strings.current.blogName, subtitle: productBlogDisplayURL, cellStyle: .value1, action: { [weak self] context in
                     self?.tracker.buttonPressed(.blog)
                     self?.webViewPresenter.presentInNavigationControlller(url: Links.blog, context: context)
                 })
@@ -93,6 +93,11 @@ class AppAboutScreenConfiguration: AboutScreenConfiguration {
         self.sharePresenter = sharePresenter
     }
 
+    private var productBlogDisplayURL: String {
+        let blogURL = BuildSettings.current.about.blogURL
+        return [blogURL.host, blogURL.path].compactMap { $0 }.joined()
+    }
+
     private enum TextContent {
         static let rateUs = NSLocalizedString("Rate Us", comment: "Title for button allowing users to rate the app in the App Store")
         static let share = NSLocalizedString("Share with Friends", comment: "Title for button allowing users to share information about the app with friends, such as via Messages")
@@ -103,8 +108,8 @@ class AppAboutScreenConfiguration: AboutScreenConfiguration {
     }
 
     private enum Links {
-        static let twitter = URL(string: AppConstants.productTwitterURL)!
-        static let blog = URL(string: AppConstants.productBlogURL)!
+        static let twitter = BuildSettings.current.about.twitterURL
+        static let blog = BuildSettings.current.about.blogURL
         static let workWithUs = URL(string: Strings.current.workWithUsURL)!
         static let automattic = URL(string: "https://automattic.com")!
     }
@@ -165,6 +170,15 @@ class LegalAndMoreSubmenuConfiguration: AboutScreenConfiguration {
         static let termsOfService = URL(string: WPAutomatticTermsOfServiceURL)!
         static let privacyPolicy = URL(string: WPAutomatticPrivacyURL)!
         static let sourceCode = URL(string: WPGithubMainURL)!
+    }
+}
+
+extension BuildSettings {
+    var shareAppName: ShareAppName {
+        switch brand {
+        case .wordpress: .wordpress
+        case .jetpack: .jetpack
+        }
     }
 }
 

@@ -12,7 +12,15 @@ extension BuildSettings {
         explatPlatform: "xcpreview",
         itunesAppID: "1234567890",
         appURLScheme: "xcpreview",
-        jetpackAppURLScheme: "jetpack"
+        jetpackAppURLScheme: "jetpack",
+        about: ProductAboutDetails(
+            twitterHandle: "@wordpress",
+            twitterURL: URL(string: "www.example.com")!,
+            blogURL: URL(string: "www.example.com")!
+        ),
+        zendeskSourcePlatform: "zen",
+        mobileAnnounceAppID: "1234567890",
+        authKeychainServiceName: "public-api.wordpress.com"
     )
 }
 
