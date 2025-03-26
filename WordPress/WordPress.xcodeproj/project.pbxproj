@@ -2873,23 +2873,6 @@
 		FFE69A2A1B1BFE200073C2EB /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		24CE68B42CD3375300C7B37D /* Exceptions for "Classes" folder in "WordPressUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Extensions/UIApplication+MainWindow.swift",
-			);
-			target = FF27168E1CAAC87A0006E2D4 /* WordPressUITests */;
-		};
-		24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Extensions/UIApplication+MainWindow.swift",
-			);
-			target = EA14532229AD874C001F3143 /* JetpackUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0C5083352D8DB82F007987AB /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -2898,10 +2881,6 @@
 		};
 		24CE57C42CD3375200C7B37D /* Classes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				24CE68B42CD3375300C7B37D /* Exceptions for "Classes" folder in "WordPressUITests" target */,
-				24CE68BB2CD3375300C7B37D /* Exceptions for "Classes" folder in "JetpackUITests" target */,
-			);
 			path = Classes;
 			sourceTree = "<group>";
 		};

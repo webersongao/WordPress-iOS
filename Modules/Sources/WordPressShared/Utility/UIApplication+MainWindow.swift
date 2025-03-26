@@ -1,6 +1,6 @@
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
     @objc var mainWindow: UIWindow? {
         connectedScenes
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }
@@ -14,7 +14,9 @@ extension UIApplication {
     @objc var currentStatusBarOrientation: UIInterfaceOrientation {
         return mainWindow?.windowScene?.interfaceOrientation ?? .unknown
     }
+}
 
+public extension UIApplication {
     var leafViewController: UIViewController? {
         guard let rootViewController = mainWindow?.rootViewController else {
             return nil

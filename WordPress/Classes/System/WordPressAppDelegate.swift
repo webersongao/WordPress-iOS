@@ -35,9 +35,6 @@ class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
 
     var analytics: WPAppAnalytics?
 
-    @objc var internetReachability: Reachability?
-    @objc var connectionAvailable: Bool = true
-
     // Private
 
     private lazy var shortcutCreator = WP3DTouchShortcutCreator()
@@ -90,7 +87,8 @@ class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
 
         configureWordPressAuthenticator()
 
-        configureReachability()
+        ReachabilityUtils.configure()
+
         configureSelfHostedChallengeHandler()
         updateFeatureFlags()
         updateRemoteConfig()
@@ -380,34 +378,6 @@ extension WordPressAppDelegate {
         let utility = AppRatingUtility.shared
         utility.systemWideSignificantEventCountRequiredForPrompt = 20
         utility.setVersion(version)
-    }
-
-    func configureReachability() {
-        internetReachability = Reachability.forInternetConnection()
-
-        let reachabilityBlock: NetworkReachable = { [weak self] reachability in
-            guard let reachability else {
-                return
-            }
-
-            DispatchQueue.main.async {
-                let wifi = reachability.isReachableViaWiFi() ? "Y" : "N"
-                let wwan = reachability.isReachableViaWWAN() ? "Y" : "N"
-
-                DDLogInfo("Reachability - Internet - WiFi: \(wifi) WWAN: \(wwan)")
-                let newValue = reachability.isReachable()
-                self?.connectionAvailable = newValue
-
-                NotificationCenter.default.post(name: .reachabilityChanged, object: self, userInfo: [Foundation.Notification.reachabilityKey: newValue])
-            }
-        }
-
-        internetReachability?.reachableBlock = reachabilityBlock
-        internetReachability?.unreachableBlock = reachabilityBlock
-
-        internetReachability?.startNotifier()
-
-        connectionAvailable = internetReachability?.isReachable() ?? true
     }
 
     func configureSelfHostedChallengeHandler() {
