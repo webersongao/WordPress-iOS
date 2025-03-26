@@ -30,6 +30,10 @@ import BuildSettingsKit
             return JetpackNotificationMigrationService.shared.handleNotificationMigrationOnWordPress()
         }
 
+        if WordPressDotComAuthenticator.handleAppOpeningURL(url) {
+            return true
+        }
+
         guard url.scheme == BuildSettings.current.appURLScheme else {
             return false
         }
