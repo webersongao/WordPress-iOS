@@ -150,6 +150,8 @@ public class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
     public func applicationDidEnterBackground(_ application: UIApplication) {
         DDLogInfo("\(self) \(#function)")
 
+        analytics?.trackApplicationDidEnterBackground(screenName: currentlySelectedScreen)
+
         let app = UIApplication.shared
 
         // Let the app finish any uploads that are in progress
@@ -191,6 +193,8 @@ public class WordPressAppDelegate: UIResponder, UIApplicationDelegate {
 
     public func applicationDidBecomeActive(_ application: UIApplication) {
         DDLogInfo("\(self) \(#function)")
+
+        analytics?.trackApplicationDidBecomeActive()
 
         // This is done here so the check is done on app launch and app switching.
         checkAppleIDCredentialState()
@@ -364,9 +368,7 @@ extension WordPressAppDelegate {
 extension WordPressAppDelegate {
 
     func configureAnalytics() {
-        analytics = WPAppAnalytics(lastVisibleScreenBlock: { [weak self] in
-            return self?.currentlySelectedScreen
-        })
+        analytics = WPAppAnalytics()
     }
 
     func configureAppRatingUtility() {
