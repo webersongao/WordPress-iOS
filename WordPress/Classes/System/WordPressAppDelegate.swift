@@ -11,6 +11,7 @@ import WordPressShared
 import AsyncImageKit
 import AutomatticAbout
 import UIDeviceIdentifier
+import SVProgressHUD
 import WordPressUI
 import ZendeskCoreSDK
 

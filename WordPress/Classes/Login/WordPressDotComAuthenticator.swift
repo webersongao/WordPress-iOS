@@ -2,6 +2,7 @@ import Alamofire
 import AuthenticationServices
 import Foundation
 import UIKit
+import SVProgressHUD
 import WordPressData
 import WordPressShared
 import BuildSettingsKit
