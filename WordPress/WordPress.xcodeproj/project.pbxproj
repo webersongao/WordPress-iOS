@@ -97,6 +97,7 @@
 		0C3858212CA74DC7004880ED /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38581F2CA74DC7004880ED /* AppSettingsTests.swift */; };
 		0C391E642A312DB20040EA91 /* BlazeCampaignViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C391E632A312DB20040EA91 /* BlazeCampaignViewModelTests.swift */; };
 		0C4CE8492C2F418000B9EEAC /* AppImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433840C622C2BA5B00CB13F8 /* AppImages.xcassets */; };
+		0C5C46F62D9837CE00F2CD55 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24351253264DCA08009BB2B6 /* Secrets.swift */; };
 		0C63266F2A3D1305000B8C57 /* GutenbergFilesAppMediaSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63266E2A3D1305000B8C57 /* GutenbergFilesAppMediaSourceTests.swift */; };
 		0C6AC6122C364A2800BF7600 /* XcodeTarget_App in Frameworks */ = {isa = PBXBuildFile; productRef = 0C6AC6112C364A2800BF7600 /* XcodeTarget_App */; };
 		0C6AC6142C364A3100BF7600 /* XcodeTarget_ShareExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 0C6AC6132C364A3100BF7600 /* XcodeTarget_ShareExtension */; };
@@ -2264,6 +2265,86 @@
 		FFE69A2A1B1BFE200073C2EB /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0C5C46F42D98343300F2CD55 /* Exceptions for "Classes" folder in "Keystone" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"System/WordPress-Bridging-Header.h",
+			);
+			publicHeaders = (
+				"Categories/Media+Extensions.h",
+				"Categories/NSObject+Helpers.h",
+				"Categories/UIApplication+Helpers.h",
+				"Categories/UIView+Subviews.h",
+				Models/Blog/Blog.h,
+				Models/CoreDataStack/CoreDataService.h,
+				Models/CoreDataStack/CoreDataStack.h,
+				Models/Media.h,
+				Models/MenuItem.h,
+				Models/PostCategory.h,
+				Models/PostContentProvider.h,
+				Models/PostTag.h,
+				Models/ReaderGapMarker.h,
+				Models/ReaderPost.h,
+				Models/SourcePostAttribution.h,
+				Models/Theme.h,
+				Models/WPAccount.h,
+				Services/AccountService.h,
+				Services/BlogService.h,
+				Services/CommentService.h,
+				Services/Facades/BlogSyncFacade.h,
+				Services/LocalCoreDataService.h,
+				Services/MediaService.h,
+				Services/MenusService.h,
+				Services/PostCategoryService.h,
+				Services/PostHelper.h,
+				Services/PostService.h,
+				Services/PostServiceOptions.h,
+				Services/PostTagService.h,
+				"Services/Reader Post/ReaderPostService.h",
+				Services/ReaderSiteService_Internal.h,
+				Services/ReaderSiteService.h,
+				Services/ReaderTopicService.h,
+				Services/ThemeService.h,
+				System/Constants/Constants.h,
+				Utility/Analytics/WPAppAnalytics.h,
+				Utility/Logging/WPLogger.h,
+				Utility/Sharing/WPActivityDefaults.h,
+				Utility/UIAlertControllerProxy.h,
+				Utility/WebViewController/WPWebViewController.h,
+				Utility/WPAuthTokenIssueSolver.h,
+				Utility/WPError.h,
+				Utility/WPTableViewHandler.h,
+				"ViewRelated/Blog/Blog Details/BlogDetailsViewController.h",
+				ViewRelated/Blog/Sharing/SharingViewController.h,
+				"ViewRelated/Blog/Site Settings/SettingTableViewCell.h",
+				"ViewRelated/Blog/Site Settings/SiteSettingsViewController.h",
+				ViewRelated/Comments/Controllers/CommentsViewController.h,
+				"ViewRelated/Me/Help & Support/Activity Logs/ActivityLogViewController.h",
+				ViewRelated/Menus/Controllers/MenuItemsViewController.h,
+				ViewRelated/Pages/PageSettingsViewController.h,
+				ViewRelated/Post/PostSettingsViewController.h,
+				ViewRelated/Post/Views/PostMetaButton.h,
+				ViewRelated/Stats/StatsViewController.h,
+				ViewRelated/Suggestions/SuggestionsTableView.h,
+				ViewRelated/Suggestions/SuggestionsTableViewCell.h,
+				ViewRelated/System/WPTabBarController.h,
+				ViewRelated/Tools/SettingsMultiTextViewController.h,
+				ViewRelated/Tools/SettingsSelectionViewController.h,
+				ViewRelated/Tools/SettingsTextViewController.h,
+				ViewRelated/Views/WPUploadStatusButton.h,
+			);
+			target = 0CED016F2D95B897003015CF /* Keystone */;
+		};
+		0C5C47012D9839DE00F2CD55 /* Exceptions for "Keystone" folder in "Keystone" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				Keystone.h,
+			);
+			target = 0CED016F2D95B897003015CF /* Keystone */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0C1C180E2D95DA5200494A8C /* Icons */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -2286,10 +2367,12 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		0CED01712D95B897003015CF /* Keystone */ = {
+		0C5C46FE2D98397A00F2CD55 /* Keystone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			name = Keystone;
-			path = ../Sources/Keystone;
+			exceptions = (
+				0C5C47012D9839DE00F2CD55 /* Exceptions for "Keystone" folder in "Keystone" target */,
+			);
+			path = Keystone;
 			sourceTree = "<group>";
 		};
 		0CED35262D959427003015CF /* Misc */ = {
@@ -2299,6 +2382,9 @@
 		};
 		24CE57C42CD3375200C7B37D /* Classes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0C5C46F42D98343300F2CD55 /* Exceptions for "Classes" folder in "Keystone" target */,
+			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -2649,6 +2735,15 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
+		0C5C46FB2D98395300F2CD55 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0C5C46FE2D98397A00F2CD55 /* Keystone */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = SOURCE_ROOT;
+		};
 		0C7D48182A4DB91B0023CF84 /* Blaze */ = {
 			isa = PBXGroup;
 			children = (
@@ -2725,6 +2820,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				0C5C46FB2D98395300F2CD55 /* Sources */,
 				F14B5F6F208E648200439554 /* config */,
 				E1B34C091CCDFFCE00889709 /* Credentials */,
 				24CE57C42CD3375200C7B37D /* Classes */,
@@ -2744,7 +2840,6 @@
 				8511CFB71C607A7000B7CEED /* WordPressScreenshotGeneration */,
 				FAF64BC82637DF0600E8A1DF /* JetpackScreenshotGeneration */,
 				4AD953B52C21451700D0EEFA /* WordPressAuthenticator */,
-				0CED01712D95B897003015CF /* Keystone */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				93FA0F0118E451A80007903B /* LICENSE */,
@@ -5023,6 +5118,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CED017C2D95B897003015CF /* Build configuration list for PBXNativeTarget "Keystone" */;
 			buildPhases = (
+				0C5C46F72D9837FE00F2CD55 /* Generate Credentials */,
 				0CED016B2D95B897003015CF /* Headers */,
 				0CED016C2D95B897003015CF /* Sources */,
 				0CED016D2D95B897003015CF /* Frameworks */,
@@ -5034,7 +5130,8 @@
 				0CED2AE42D95BB46003015CF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				0CED01712D95B897003015CF /* Keystone */,
+				0C5C46FE2D98397A00F2CD55 /* Keystone */,
+				24CE57C42CD3375200C7B37D /* Classes */,
 			);
 			name = Keystone;
 			packageProductDependencies = (
@@ -5927,6 +6024,26 @@
 			shellScript = "\"$SRCROOT/../Scripts/BuildPhases/LintAppLocalizedStringsUsage.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		0C5C46F72D9837FE00F2CD55 /* Generate Credentials */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/../Scripts/BuildPhases/GenerateCredentials.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Generate Credentials";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILD_DIR)/Secrets/Secrets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/../Scripts/BuildPhases/GenerateCredentials.sh\n";
+		};
 		0C96F99E2D92E28E000779B8 /* Generate Credentials */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -6137,6 +6254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C5C46F62D9837CE00F2CD55 /* Secrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7417,7 +7535,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -7426,6 +7543,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"KEYSTONE=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -7451,10 +7569,15 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WARNING_CFLAGS = (
+					"-Wno-nullability-completeness",
+					"-Wno-quoted-include-in-framework-header",
+				);
 			};
 			name = Debug;
 		};
@@ -7481,11 +7604,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_PREFIX_HEADER = ../Sources/Keystone/Keystone_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "KEYSTONE=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -7508,10 +7631,15 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WARNING_CFLAGS = (
+					"-Wno-nullability-completeness",
+					"-Wno-quoted-include-in-framework-header",
+				);
 			};
 			name = Release;
 		};
@@ -7538,11 +7666,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_PREFIX_HEADER = ../Sources/Keystone/Keystone_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "KEYSTONE=1";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -7565,10 +7693,15 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WARNING_CFLAGS = (
+					"-Wno-nullability-completeness",
+					"-Wno-quoted-include-in-framework-header",
+				);
 			};
 			name = "Release-Alpha";
 		};
