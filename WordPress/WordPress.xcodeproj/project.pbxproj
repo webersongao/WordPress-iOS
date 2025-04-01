@@ -96,6 +96,20 @@
 		0C3858212CA74DC7004880ED /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38581F2CA74DC7004880ED /* AppSettingsTests.swift */; };
 		0C391E642A312DB20040EA91 /* BlazeCampaignViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C391E632A312DB20040EA91 /* BlazeCampaignViewModelTests.swift */; };
 		0C4CE8492C2F418000B9EEAC /* AppImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433840C622C2BA5B00CB13F8 /* AppImages.xcassets */; };
+		0C5A8A742D9B22F100C25301 /* Gutenberg.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3902D2C4BA3008ACD86 /* Gutenberg.xcframework */; };
+		0C5A8A752D9B22F100C25301 /* Gutenberg.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3902D2C4BA3008ACD86 /* Gutenberg.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A762D9B22F100C25301 /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3922D2C4BA3008ACD86 /* hermes.xcframework */; };
+		0C5A8A772D9B22F100C25301 /* hermes.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3922D2C4BA3008ACD86 /* hermes.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A782D9B22F100C25301 /* Keystone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CED01702D95B897003015CF /* Keystone.framework */; };
+		0C5A8A792D9B22F100C25301 /* Keystone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CED01702D95B897003015CF /* Keystone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A7C2D9B22F100C25301 /* React.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D38F2D2C4BA3008ACD86 /* React.xcframework */; };
+		0C5A8A7D2D9B22F100C25301 /* React.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D38F2D2C4BA3008ACD86 /* React.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A7E2D9B22F100C25301 /* RNTAztecView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3912D2C4BA3008ACD86 /* RNTAztecView.xcframework */; };
+		0C5A8A7F2D9B22F100C25301 /* RNTAztecView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3912D2C4BA3008ACD86 /* RNTAztecView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A802D9B22F100C25301 /* WordPressAuthenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD953B42C21451700D0EEFA /* WordPressAuthenticator.framework */; };
+		0C5A8A812D9B22F100C25301 /* WordPressAuthenticator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD953B42C21451700D0EEFA /* WordPressAuthenticator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C5A8A842D9B22F100C25301 /* yoga.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3932D2C4BA4008ACD86 /* yoga.xcframework */; };
+		0C5A8A852D9B22F100C25301 /* yoga.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F60D3932D2C4BA4008ACD86 /* yoga.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C5C46F62D9837CE00F2CD55 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24351253264DCA08009BB2B6 /* Secrets.swift */; };
 		0C63266F2A3D1305000B8C57 /* GutenbergFilesAppMediaSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63266E2A3D1305000B8C57 /* GutenbergFilesAppMediaSourceTests.swift */; };
 		0C6AC6122C364A2800BF7600 /* XcodeTarget_App in Frameworks */ = {isa = PBXBuildFile; productRef = 0C6AC6112C364A2800BF7600 /* XcodeTarget_App */; };
@@ -747,6 +761,20 @@
 			remoteGlobalIDString = 0107E13828FE9DB200DE87DB;
 			remoteInfo = JetpackIntents;
 		};
+		0C5A8A7A2D9B22F100C25301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CED016F2D95B897003015CF;
+			remoteInfo = Keystone;
+		};
+		0C5A8A822D9B22F100C25301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AD953B32C21451700D0EEFA;
+			remoteInfo = WordPressAuthenticator;
+		};
 		0CED2AE32D95BB46003015CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -899,6 +927,23 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C5A8A862D9B22F100C25301 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0C5A8A752D9B22F100C25301 /* Gutenberg.xcframework in Embed Frameworks */,
+				0C5A8A792D9B22F100C25301 /* Keystone.framework in Embed Frameworks */,
+				0C5A8A812D9B22F100C25301 /* WordPressAuthenticator.framework in Embed Frameworks */,
+				0C5A8A772D9B22F100C25301 /* hermes.xcframework in Embed Frameworks */,
+				0C5A8A852D9B22F100C25301 /* yoga.xcframework in Embed Frameworks */,
+				0C5A8A7D2D9B22F100C25301 /* React.xcframework in Embed Frameworks */,
+				0C5A8A7F2D9B22F100C25301 /* RNTAztecView.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1154,6 +1199,10 @@
 		0C38581F2CA74DC7004880ED /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
 		0C391E632A312DB20040EA91 /* BlazeCampaignViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlazeCampaignViewModelTests.swift; sourceTree = "<group>"; };
 		0C43FF802C3601770084B698 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0C5A3F8C2D9B1E3700C25301 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C5A65192D9B21CE00C25301 /* Reader.alpha.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Reader.alpha.xcconfig; sourceTree = "<group>"; };
+		0C5A651A2D9B21CE00C25301 /* Reader.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Reader.debug.xcconfig; sourceTree = "<group>"; };
+		0C5A651B2D9B21CE00C25301 /* Reader.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Reader.release.xcconfig; sourceTree = "<group>"; };
 		0C63266E2A3D1305000B8C57 /* GutenbergFilesAppMediaSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GutenbergFilesAppMediaSourceTests.swift; sourceTree = "<group>"; };
 		0C6C4CCF2A4F0A000049E762 /* BlazeCampaignsStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlazeCampaignsStreamTests.swift; sourceTree = "<group>"; };
 		0C6C4CD32A4F0AD80049E762 /* blaze-search-page-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "blaze-search-page-1.json"; sourceTree = "<group>"; };
@@ -1847,6 +1896,13 @@
 			);
 			target = 4AD953B32C21451700D0EEFA /* WordPressAuthenticator */;
 		};
+		0C5A3FB42D9B214200C25301 /* Exceptions for "Reader" folder in "Reader" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0C5A3F8B2D9B1E3700C25301 /* Reader */;
+		};
 		0C5C46F42D98343300F2CD55 /* Exceptions for "Classes" folder in "Keystone" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -1955,6 +2011,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		0C5A3FAB2D9B1EF400C25301 /* Reader */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0C5A3FB42D9B214200C25301 /* Exceptions for "Reader" folder in "Reader" target */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
 		0C5A1A042D9B080900C25301 /* WordPressAuthenticatorTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WordPressAuthenticatorTests;
@@ -1999,6 +2063,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AC6262C364A8500BF7600 /* XcodeTarget_Intents in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C5A3F892D9B1E3700C25301 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C5A8A742D9B22F100C25301 /* Gutenberg.xcframework in Frameworks */,
+				0C5A8A782D9B22F100C25301 /* Keystone.framework in Frameworks */,
+				0C5A8A802D9B22F100C25301 /* WordPressAuthenticator.framework in Frameworks */,
+				0C5A8A762D9B22F100C25301 /* hermes.xcframework in Frameworks */,
+				0C5A8A842D9B22F100C25301 /* yoga.xcframework in Frameworks */,
+				0C5A8A7C2D9B22F100C25301 /* React.xcframework in Frameworks */,
+				0C5A8A7E2D9B22F100C25301 /* RNTAztecView.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2340,6 +2418,7 @@
 		0C5C46FB2D98395300F2CD55 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0C5A3FAB2D9B1EF400C25301 /* Reader */,
 				0C5C46FE2D98397A00F2CD55 /* Keystone */,
 				0C238F782D9ADF0200981631 /* WordPressAuthenticator */,
 			);
@@ -2407,6 +2486,7 @@
 				4AD953B42C21451700D0EEFA /* WordPressAuthenticator.framework */,
 				4AD953BB2C21451700D0EEFA /* WordPressAuthenticatorTests.xctest */,
 				0CED01702D95B897003015CF /* Keystone.framework */,
+				0C5A3F8C2D9B1E3700C25301 /* Reader.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3842,6 +3922,9 @@
 				24350E7C264DB76E009BB2B6 /* Jetpack.debug.xcconfig */,
 				24351059264DC1E2009BB2B6 /* Jetpack.release.xcconfig */,
 				2439B1DB264ECBDF00239130 /* Jetpack.alpha.xcconfig */,
+				0C5A651A2D9B21CE00C25301 /* Reader.debug.xcconfig */,
+				0C5A651B2D9B21CE00C25301 /* Reader.release.xcconfig */,
+				0C5A65192D9B21CE00C25301 /* Reader.alpha.xcconfig */,
 			);
 			name = config;
 			path = ../config;
@@ -4150,6 +4233,31 @@
 			productName = JetpackIntents;
 			productReference = 0107E15428FE9DB200DE87DB /* JetpackIntents.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		0C5A3F8B2D9B1E3700C25301 /* Reader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C5A3FA12D9B1E3A00C25301 /* Build configuration list for PBXNativeTarget "Reader" */;
+			buildPhases = (
+				0C5A3F882D9B1E3700C25301 /* Sources */,
+				0C5A3F892D9B1E3700C25301 /* Frameworks */,
+				0C5A3F8A2D9B1E3700C25301 /* Resources */,
+				0C5A8A862D9B22F100C25301 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C5A8A7B2D9B22F100C25301 /* PBXTargetDependency */,
+				0C5A8A832D9B22F100C25301 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0C5A3FAB2D9B1EF400C25301 /* Reader */,
+			);
+			name = Reader;
+			packageProductDependencies = (
+			);
+			productName = Reader;
+			productReference = 0C5A3F8C2D9B1E3700C25301 /* Reader.app */;
+			productType = "com.apple.product-type.application";
 		};
 		0CED016F2D95B897003015CF /* Keystone */ = {
 			isa = PBXNativeTarget;
@@ -4550,10 +4658,13 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = WordPress;
 				TargetAttributes = {
+					0C5A3F8B2D9B1E3700C25301 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					0CED016F2D95B897003015CF = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -4718,6 +4829,7 @@
 				0107E0B128F97D5000DE87DB /* JetpackStatsWidgets */,
 				0107E13828FE9DB200DE87DB /* JetpackIntents */,
 				EA14532229AD874C001F3143 /* JetpackUITests */,
+				0C5A3F8B2D9B1E3700C25301 /* Reader */,
 				3F47AC482A7206BE00208F0D /* ConfigureSimulatorForUITesting */,
 				4AD953B32C21451700D0EEFA /* WordPressAuthenticator */,
 				4AD953BA2C21451700D0EEFA /* WordPressAuthenticatorTests */,
@@ -4742,6 +4854,13 @@
 			files = (
 				4A690C1B2BA7964100A8E0C5 /* PrivacyInfo.xcprivacy in Resources */,
 				0107E14D28FE9DB200DE87DB /* AppImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C5A3F8A2D9B1E3700C25301 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5263,6 +5382,13 @@
 				0107E13B28FE9DB200DE87DB /* Sites.intentdefinition in Sources */,
 				0107E13E28FE9DB200DE87DB /* SitesDataProvider.swift in Sources */,
 				0107E14928FE9DB200DE87DB /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C5A3F882D9B1E3700C25301 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5824,6 +5950,16 @@
 			target = 0107E13828FE9DB200DE87DB /* JetpackIntents */;
 			targetProxy = 0107E15628FEA03800DE87DB /* PBXContainerItemProxy */;
 		};
+		0C5A8A7B2D9B22F100C25301 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CED016F2D95B897003015CF /* Keystone */;
+			targetProxy = 0C5A8A7A2D9B22F100C25301 /* PBXContainerItemProxy */;
+		};
+		0C5A8A832D9B22F100C25301 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AD953B32C21451700D0EEFA /* WordPressAuthenticator */;
+			targetProxy = 0C5A8A822D9B22F100C25301 /* PBXContainerItemProxy */;
+		};
 		0CED2AE42D95BB46003015CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4AD953B32C21451700D0EEFA /* WordPressAuthenticator */;
@@ -6343,6 +6479,133 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.jetpack.alpha.JetpackIntents";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release-Alpha";
+		};
+		0C5A3F9D2D9B1E3A00C25301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5A651A2D9B21CE00C25301 /* Reader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Sources/Reader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "${VERSION_SHORT}";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0C5A3F9E2D9B1E3A00C25301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5A651B2D9B21CE00C25301 /* Reader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Sources/Reader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "${VERSION_SHORT}";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0C5A3F9F2D9B1E3A00C25301 /* Release-Alpha */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5A65192D9B21CE00C25301 /* Reader.alpha.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Sources/Reader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "${VERSION_SHORT}";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -8351,14 +8614,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24350E7C264DB76E009BB2B6 /* Jetpack.debug.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
 				CODE_SIGN_ENTITLEMENTS = Jetpack/JetpackDebug.entitlements;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
-				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = WordPress_Prefix.pch;
@@ -8411,7 +8672,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24351059264DC1E2009BB2B6 /* Jetpack.release.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
@@ -8419,7 +8679,6 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Automattic, Inc. (PZYM8XX95Q)";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
-				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WordPress_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -8469,7 +8728,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2439B1DB264ECBDF00239130 /* Jetpack.alpha.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
@@ -8477,7 +8735,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Automattic, Inc.";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "${VERSION_LONG}";
-				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WordPress_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -8830,6 +9087,16 @@
 				0107E15028FE9DB200DE87DB /* Debug */,
 				0107E15128FE9DB200DE87DB /* Release */,
 				0107E15328FE9DB200DE87DB /* Release-Alpha */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C5A3FA12D9B1E3A00C25301 /* Build configuration list for PBXNativeTarget "Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C5A3F9D2D9B1E3A00C25301 /* Debug */,
+				0C5A3F9E2D9B1E3A00C25301 /* Release */,
+				0C5A3F9F2D9B1E3A00C25301 /* Release-Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
