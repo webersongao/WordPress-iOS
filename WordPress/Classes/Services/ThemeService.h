@@ -1,12 +1,14 @@
 #import "CoreDataStack.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class Blog;
 @class Theme;
 @class WPAccount;
 
 typedef void(^ThemeServiceSuccessBlock)(void);
-typedef void(^ThemeServiceThemeRequestSuccessBlock)(Theme *theme);
-typedef void(^ThemeServiceThemesRequestSuccessBlock)(NSArray<Theme *> *themes, BOOL hasMore, NSInteger totalThemeCount);
+typedef void(^ThemeServiceThemeRequestSuccessBlock)(Theme * _Nullable theme);
+typedef void(^ThemeServiceThemesRequestSuccessBlock)(NSArray<Theme *> * _Nullable themes, BOOL hasMore, NSInteger totalThemeCount);
 typedef void(^ThemeServiceFailureBlock)(NSError *error);
 
 @interface ThemeService : NSObject
@@ -110,3 +112,5 @@ typedef void(^ThemeServiceFailureBlock)(NSError *error);
 
 
 @end
+
+NS_ASSUME_NONNULL_END
