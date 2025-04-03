@@ -1,14 +1,13 @@
 #import "Blog.h"
 #import "WPAccount.h"
-#import "AccountService.h"
-@import WordPressShared;
 #ifdef KEYSTONE
 #import "Keystone-Swift.h"
 #else
 #import "WordPress-Swift.h"
 #endif
-@import SFHFKeychainUtils;
 
+@import SFHFKeychainUtils;
+@import WordPressShared;
 @import NSObject_SafeExpectations;
 @import NSURL_IDN;
 
